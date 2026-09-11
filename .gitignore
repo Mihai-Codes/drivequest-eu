@@ -1,0 +1,14 @@
+# Corpus + local artifacts never enter the repo (proprietary vendor bank).
+*.sdf
+*.sqlite
+*.sqlite3
+*.db
+*.msi
+*.bin
+*.exe
+*.jpg
+*.sqc
+/tmp/
+/dqdata/
+.DS_Store
+__pycache__/
