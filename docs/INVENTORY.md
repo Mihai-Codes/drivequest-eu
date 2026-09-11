@@ -4,10 +4,19 @@ Source: ABC Auto Categoria B MSI (LegislatieRutiera.ro SRL, Mar 2024 build) +
 ABC auto CD (PROPHETIT GROUP v.3, Inno Setup 6). All Romanian. Extracted on
 macOS: `msiextract` + `innoextract` + `boykopovar/sqlce` (cross-platform SDF
 reader). MSI SDF password recovered from the app's own data-layer DLL
-(`Auto.Utils.dll` connection string). CD SDF (`ABCAutoB.sdf`, SQL CE 3.5) uses
-a different password inside a packed binary — unlock queued via `ilspycmd`
-decompile (dotnet SDK installing). CD treated as fallback: same product
-family, older generation.
+(`Auto.Utils.dll` connection string). CD SDF (`ABCAutoB.sdf`, SQL CE 3.5)
+unlocked via `ilspycmd` decompile of the packed binary: connection string
+at line 225 gave password `cucurucu`. CD treated as co-equal source, not
+fallback (see overlap below).
+
+## Combined syllabus (deduplicated on normalised text)
+
+- MSI: 2,340 questions / 20 categories (no diacritics).
+- CD: 1,447 questions / 19 categories (with diacritics ş/ţ) + **`amenzi`:
+  169 fines** (`denumire, articol, amenda, puncte_penalizare, suspendare`)
+  — fines table exists ONLY on the CD.
+- Overlap: just 136 questions. **Combined unique ≈ 3,650 + 169 fines.**
+- Both exported to local SQLite (`abc_ro.sqlite`, `abc_cd.sqlite`).
 
 ## MSI database: `intrebari_pregatitoare.sdf` (SQL CE 4.0)
 
