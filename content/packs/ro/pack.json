@@ -1018,6 +1018,380 @@
         "ro": "Fara mers inapoi pe autostrada sau in intersectii; in rest doar scurt si in siguranta."
       },
       "media": null
+    },
+    {
+      "id": "ro-semne-0001",
+      "chapter": "semne",
+      "type": "single",
+      "difficulty": 1,
+      "article": "Vienna Convention, Annex 1 + Regulamentul de aplicare HG 1391/2006",
+      "stem": {
+        "en": "What does a triangular sign with a red border mean?",
+        "ro": "Ce inseamna un indicator triunghiular cu chenar rosu?"
+      },
+      "options": {
+        "en": {
+          "a": "A warning of danger ahead",
+          "b": "A prohibition",
+          "c": "An obligation"
+        },
+        "ro": {
+          "a": "Avertizare asupra unui pericol",
+          "b": "Interzicere",
+          "c": "Obligatie"
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Triangle + red border = danger warning in Romania as everywhere under the Convention.",
+        "ro": "Triunghiul cu chenar rosu = presemnalizarea unui pericol."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-semne-0002",
+      "chapter": "semne",
+      "type": "single",
+      "difficulty": 1,
+      "article": "Vienna Convention, Annex 4 + Regulamentul de aplicare HG 1391/2006",
+      "stem": {
+        "en": "Round sign, red border. Round sign, blue. What is the difference?",
+        "ro": "Indicator rotund, chenar rosu. Indicator rotund, albastru. Care e diferenta?"
+      },
+      "options": {
+        "en": {
+          "a": "Red-bordered prohibits, blue orders",
+          "b": "Red-bordered orders, blue prohibits",
+          "c": "No difference"
+        },
+        "ro": {
+          "a": "Cel cu rosu interzice, cel albastru obliga",
+          "b": "Cel cu rosu obliga, cel albastru interzice",
+          "c": "Nicio diferenta"
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Red circle = prohibition/restriction; blue circle = mandatory behaviour.",
+        "ro": "Cercul rosu = interzicere/restrictie; cercul albastru = obligatie."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-semne-0003",
+      "chapter": "semne",
+      "type": "single",
+      "difficulty": 2,
+      "article": "Regulamentul de aplicare HG 1391/2006 — trecerea pentru pietoni",
+      "stem": {
+        "en": "How do you recognise the pedestrian-crossing warning sign?",
+        "ro": "Cum recunosti indicatorul de avertizare «trecere pentru pietoni»?"
+      },
+      "options": {
+        "en": {
+          "a": "Blue square with white P",
+          "b": "Triangle with red border showing a pedestrian",
+          "c": "Round blue sign with an arrow"
+        },
+        "ro": {
+          "a": "Patrat albastru cu P alb",
+          "b": "Triunghi cu chenar rosu cu pieton",
+          "c": "Cerc albastru cu sageata"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "The crossing warning is triangular (danger family); the blue P square marks parking.",
+        "ro": "Avertizarea de trecere e triunghiulara; patratul albastru cu P e parcarea."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-semne-0004",
+      "chapter": "semne",
+      "type": "single",
+      "difficulty": 2,
+      "article": "Regulamentul de aplicare HG 1391/2006 — accesul interzis",
+      "stem": {
+        "en": "What does a red disc with a white horizontal bar mean?",
+        "ro": "Ce inseamna discul rosu cu bara alba orizontala?"
+      },
+      "options": {
+        "en": {
+          "a": "No entry for any vehicle",
+          "b": "One-way street",
+          "c": "End of speed limit"
+        },
+        "ro": {
+          "a": "Accesul interzis tuturor vehiculelor",
+          "b": "Sens unic",
+          "c": "Sfarsitul limitei de viteza"
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "The bar-disc bans entry from that side; one-way is a blue rectangle with an arrow.",
+        "ro": "Discul cu bara interzice accesul din acel sens; sensul unic e dreptunghi albastru cu sageata."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-semne-0005",
+      "chapter": "semne",
+      "type": "single",
+      "difficulty": 2,
+      "article": "Regulamentul de aplicare HG 1391/2006 — marcaje longitudinale",
+      "stem": {
+        "en": "A continuous line separates your lane from oncoming traffic. What applies?",
+        "ro": "O linie continua iti separa banda de sensul opus. Ce se aplica?"
+      },
+      "options": {
+        "en": {
+          "a": "You may cross it to overtake quickly",
+          "b": "You must not cross or straddle it",
+          "c": "You may stop on it briefly"
+        },
+        "ro": {
+          "a": "O poti incalca pentru o depasire rapida",
+          "b": "Nu ai voie sa o incalci sau sa o calareci",
+          "c": "Poti opri scurt pe ea"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Continuous lines ban crossing, overtaking across them and stopping on them.",
+        "ro": "Linia continua interzice incalcarea, depasirea peste ea si oprirea pe ea."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-semne-0006",
+      "chapter": "semne",
+      "type": "multi",
+      "difficulty": 2,
+      "article": "Vienna Convention, Annex 5 + Regulamentul de aplicare HG 1391/2006",
+      "stem": {
+        "en": "Which are informative signs? (two correct)",
+        "ro": "Care sunt indicatoare de informare? (doua corecte)"
+      },
+      "options": {
+        "en": {
+          "a": "Motorway start",
+          "b": "STOP",
+          "c": "Parking P"
+        },
+        "ro": {
+          "a": "Inceput de autostrada",
+          "b": "STOP",
+          "c": "Parcare P"
+        }
+      },
+      "correct": [
+        "a",
+        "c"
+      ],
+      "explanation": {
+        "en": "Motorway and parking panels inform; STOP orders.",
+        "ro": "Autostrada si parcarea informeaza; STOP-ul obliga."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-preventiva-0001",
+      "chapter": "preventiva",
+      "type": "single",
+      "difficulty": 1,
+      "article": "Conduita preventiva — regula celor 2 secunde",
+      "stem": {
+        "en": "The code sets no fixed following distance. What rule do defensive drivers use?",
+        "ro": "Codul nu stabileste o distanta fixa intre vehicule. Ce regula folosesc soferii preventivi?"
+      },
+      "options": {
+        "en": {
+          "a": "The 2-second rule to the vehicle ahead",
+          "b": "Exactly 5 metres always",
+          "c": "Half the speedometer value in metres"
+        },
+        "ro": {
+          "a": "Regula celor 2 secunde fata de vehiculul din fata",
+          "b": "Exact 5 metri mereu",
+          "c": "Jumatate din viteza, in metri"
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Pick a fixed point: at least 2 seconds behind in good conditions, more in rain or darkness.",
+        "ro": "Alege un reper fix: minimum 2 secunde in conditii bune, mai mult pe ploaie sau noaptea."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-preventiva-0002",
+      "chapter": "preventiva",
+      "type": "single",
+      "difficulty": 2,
+      "article": "Conduita preventiva — unghiul mort",
+      "stem": {
+        "en": "How do you cover the blind spot before a lane change?",
+        "ro": "Cum acoperi unghiul mort inainte de schimbarea benzii?"
+      },
+      "options": {
+        "en": {
+          "a": "Mirrors are enough",
+          "b": "Glance over your shoulder toward the blind spot",
+          "c": "Honk before moving"
+        },
+        "ro": {
+          "a": "Oglinzile sunt suficiente",
+          "b": "Privesti peste umar spre unghiul mort",
+          "c": "Claxonezi inainte de manevra"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Mirrors leave a blind angle; the shoulder check closes it.",
+        "ro": "Oglinzile lasa un unghi mort; privirea peste umar il acopera."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-preventiva-0003",
+      "chapter": "preventiva",
+      "type": "single",
+      "difficulty": 2,
+      "article": "Conduita preventiva — acvaplanarea",
+      "stem": {
+        "en": "The car starts aquaplaning on a water film. What do you do?",
+        "ro": "Masina intra in acvaplanare pe o pelicula de apa. Ce faci?"
+      },
+      "options": {
+        "en": {
+          "a": "Brake hard immediately",
+          "b": "Ease off the accelerator, hold the wheel straight, no sudden moves",
+          "c": "Shift to neutral and close your eyes"
+        },
+        "ro": {
+          "a": "Franezi puternic imediat",
+          "b": "Ridici piciorul de pe acceleratie, tii volanul drept, fara miscari bruste",
+          "c": "Treci pe liber si inchizi ochii"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Grip returns as speed drops; braking or steering sharply makes the skid worse.",
+        "ro": "Aderenta revine odata cu scaderea vitezei; franarea sau virarea brusca agraveaza derapajul."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-preventiva-0004",
+      "chapter": "preventiva",
+      "type": "single",
+      "difficulty": 2,
+      "article": "Conduita preventiva — conducerea pe timp de noapte",
+      "stem": {
+        "en": "Oncoming high beams dazzle you at night. What helps?",
+        "ro": "Te orbeste faza lunga a celui din fata, noaptea. Ce te ajuta?"
+      },
+      "options": {
+        "en": {
+          "a": "Look at the right edge of the road and slow down",
+          "b": "Stare back into their lights",
+          "c": "Switch on your own high beams permanently"
+        },
+        "ro": {
+          "a": "Privesti marginea dreapta a drumului si reduci viteza",
+          "b": "Te uiti fix in farurile lui",
+          "c": "Aprinzi permanent faza lunga"
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Right-edge tracking keeps your lane; lower speed buys reaction time.",
+        "ro": "Urmarirea marginii drepte te tine pe banda; viteza mai mica iti da timp de reactie."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-preventiva-0005",
+      "chapter": "preventiva",
+      "type": "single",
+      "difficulty": 1,
+      "article": "Conduita preventiva — oboseala la volan",
+      "stem": {
+        "en": "You yawn repeatedly on a long trip. What is the safe response?",
+        "ro": "Casti des pe un drum lung. Care e reactia sigura?"
+      },
+      "options": {
+        "en": {
+          "a": "Open the window and push through",
+          "b": "Stop and rest (at least a 15-minute break)",
+          "c": "Drink more coffee and speed up"
+        },
+        "ro": {
+          "a": "Deschizi geamul si continui",
+          "b": "Opresti si te odihnesti (macar o pauza de 15 minute)",
+          "c": "Bei mai multa cafea si accelerezi"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Fatigue kills like alcohol; only real rest restores attention. Plan breaks ~every 2 hours.",
+        "ro": "Oboseala ucide ca alcoolul; doar odihna reala reface atentia. Planifica pauze cam la 2 ore."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-preventiva-0006",
+      "chapter": "preventiva",
+      "type": "multi",
+      "difficulty": 3,
+      "article": "Conduita preventiva — adaptarea la carosabil",
+      "stem": {
+        "en": "Which surfaces demand lower speed and gentler inputs? (two correct)",
+        "ro": "Ce suprafete cer viteza mai mica si comenzi mai blande? (doua corecte)"
+      },
+      "options": {
+        "en": {
+          "a": "Black ice and wet fallen leaves",
+          "b": "Dry clean asphalt at noon",
+          "c": "Fresh snow and slush"
+        },
+        "ro": {
+          "a": "Gheata neagra si frunzele ude",
+          "b": "Asfaltul uscat si curat la pranz",
+          "c": "Zapada proaspata si zloata"
+        }
+      },
+      "correct": [
+        "a",
+        "c"
+      ],
+      "explanation": {
+        "en": "Ice, leaves, snow and slush all cut grip; dry asphalt is the reference surface.",
+        "ro": "Gheata, frunzele, zapada si zloata reduc aderenta; asfaltul uscat e suprafata de referinta."
+      },
+      "media": null
     }
   ]
 }

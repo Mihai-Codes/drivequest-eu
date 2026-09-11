@@ -1,9 +1,20 @@
 # DriveQuest EU — Gamified EU Driving-Licence Academy
 
+![Glaze](https://img.shields.io/badge/Glaze-0.14-364395)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-packs-003B57?logo=sqlite&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-full--3D-black?logo=three.js&logoColor=white)
+![Python](https://img.shields.io/badge/Python-tooling-3776AB?logo=python&logoColor=white)
+![Offline](https://img.shields.io/badge/offline-first-2E7D32)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 CloudQuest-style 3D learning for the Category B driving licence. Theory-first,
 fully offline macOS app (Glaze), built country-pack by country-pack.
 
-**Status:** scaffold + recovered-corpus inventory. No app code yet.
+**Status:** `eu` core pack (30Q) + `ro` pack (24Q + 10 fines) + SVG sign set.
+CI green. No app code yet — see `docs/ARCHITECTURE.md` for the stack plan.
 
 ## The loop (inspired by CloudQuest, reskinned for roads)
 
