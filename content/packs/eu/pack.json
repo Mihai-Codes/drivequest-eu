@@ -1,1 +1,806 @@
-{"chapters": [{"id": "warning", "title": {"en": "Danger warning signs"}}, {"id": "priority", "title": {"en": "Priority signs"}}, {"id": "level-crossing", "title": {"en": "Level crossings"}}, {"id": "prohibitory", "title": {"en": "Prohibitory signs"}}, {"id": "mandatory", "title": {"en": "Mandatory signs"}}, {"id": "informative", "title": {"en": "Informative signs"}}, {"id": "parking", "title": {"en": "Standing and parking signs"}}, {"id": "panels", "title": {"en": "Additional panels"}}, {"id": "markings", "title": {"en": "Road markings"}}, {"id": "signals", "title": {"en": "Light signals"}}], "examFormat": {"passMinCorrect": 22, "questionCount": 26, "timeLimitSec": 1800}, "meta": {"country": "eu", "languages": ["en"], "lawValidThrough": "2026-09", "packVersion": "0.1.0", "sources": ["https://unece.org/transport/publications/convention-road-signs-and-signals-1968-european-agreement-supplementing"]}, "questions": [{"article": "Vienna Convention, Annex 1, Section A", "chapter": "warning", "correct": ["b"], "difficulty": 1, "explanation": {"en": "Danger warning signs are equilateral triangles: white or yellow ground, red border, black symbol, point up."}, "id": "eu-warning-0001", "media": null, "options": {"en": {"a": "Round with a red border", "b": "Triangular with a red border", "c": "Square and blue"}}, "stem": {"en": "What is the standard shape of a danger warning sign?"}, "type": "single"}, {"article": "Vienna Convention, Annex 1, general provisions", "chapter": "warning", "correct": ["b"], "difficulty": 2, "explanation": {"en": "Outside built-up areas warning signs stand far enough ahead (commonly 150 to 250 m) that drivers can react in time."}, "id": "eu-warning-0002", "media": null, "options": {"en": {"a": "Immediately at the hazard", "b": "Well in advance of the hazard", "c": "Only after passing the hazard"}}, "stem": {"en": "Where is a danger warning sign placed relative to the hazard?"}, "type": "single"}, {"article": "Vienna Convention, Annex 1, Section C", "chapter": "warning", "correct": ["a", "c"], "difficulty": 2, "explanation": {"en": "Both the double-bend symbol and the slippery-road symbol are danger warnings: triangular, red border."}, "id": "eu-warning-0003", "media": null, "options": {"en": {"a": "Double bend ahead", "b": "End of priority road", "c": "Slippery road"}}, "stem": {"en": "Which two meanings belong to triangular red-bordered signs? (two correct)"}, "type": "multi"}, {"article": "Vienna Convention, Annex 2 (B,1 and B,2)", "chapter": "priority", "correct": ["c"], "difficulty": 1, "explanation": {"en": "Give way is an inverted triangle; STOP is an octagon with STOP in white on red."}, "id": "eu-priority-0001", "media": null, "options": {"en": {"a": "Both are round", "b": "Both are triangular", "c": "Give way is an inverted triangle, STOP is octagonal"}}, "stem": {"en": "How do the GIVE WAY and STOP signs differ in shape?"}, "type": "single"}, {"article": "Vienna Convention, Annex 2 (B,3)", "chapter": "priority", "correct": ["a"], "difficulty": 1, "explanation": {"en": "The yellow diamond marks a priority road: you have priority at every intersection until the end-of-priority sign."}, "id": "eu-priority-0002", "media": null, "options": {"en": {"a": "You are on a priority road", "b": "You must stop at every junction", "c": "Overtaking is prohibited"}}, "stem": {"en": "What does a yellow diamond sign tell you?"}, "type": "single"}, {"article": "Vienna Convention, Annex 2 (B,5 and B,6)", "chapter": "priority", "correct": ["b"], "difficulty": 3, "explanation": {"en": "The red-white arrow sign gives priority to oncoming traffic; the blue-red square gives you priority over oncoming vehicles on a narrow section."}, "id": "eu-priority-0003", "media": null, "options": {"en": {"a": "Both give you priority", "b": "Round red-white yields to oncoming traffic; square blue-red keeps your priority", "c": "Both apply only inside tunnels"}}, "stem": {"en": "On a narrow road, what is the difference between the round and square priority signs?"}, "type": "single"}, {"article": "Vienna Convention, Annex 3, Section A", "chapter": "level-crossing", "correct": ["a"], "difficulty": 2, "explanation": {"en": "The St. Andrew's cross marks a level crossing, placed at the crossing itself."}, "id": "eu-level-crossing-0001", "media": null, "options": {"en": {"a": "Level crossing ahead or at the crossing", "b": "Tram stop", "c": "Railway station parking"}}, "stem": {"en": "What does the X-shaped St. Andrew's cross indicate?"}, "type": "single"}, {"article": "Vienna Convention, Annex 1, Section A (automatic level crossing with gates)", "chapter": "level-crossing", "correct": ["c"], "difficulty": 2, "explanation": {"en": "You must stop when the barrier starts to lower or the red lights flash, and never weave around a lowered barrier."}, "id": "eu-level-crossing-0002", "media": null, "options": {"en": {"a": "Speed up to beat the barrier", "b": "Stop only if a train is visible", "c": "Stop and wait until the barrier rises and lights stop"}}, "stem": {"en": "The barrier at a level crossing starts to lower. What do you do?"}, "type": "single"}, {"article": "Vienna Convention, Annex 7 (panels) with Annex 1", "chapter": "level-crossing", "correct": ["b"], "difficulty": 3, "explanation": {"en": "The three countdown markers show roughly 240 m, 160 m and 80 m to a level crossing outside built-up areas."}, "id": "eu-level-crossing-0003", "media": null, "options": {"en": {"a": "Speed limits for trucks", "b": "Remaining distance to the level crossing", "c": "Number of tracks"}}, "stem": {"en": "Red-and-white striped posts with three, two and one bars appear before a crossing. What do they mean?"}, "type": "single"}, {"article": "Vienna Convention, Annex 4, Section A (prohibition and restriction)", "chapter": "prohibitory", "correct": ["a"], "difficulty": 1, "explanation": {"en": "Prohibitory signs are round with a red border (no entry, no overtaking, speed limits)."}, "id": "eu-prohibitory-0001", "media": null, "options": {"en": {"a": "Round with a red border", "b": "Round and blue", "c": "Triangular and yellow"}}, "stem": {"en": "What shape do prohibitory signs have?"}, "type": "single"}, {"article": "Vienna Convention, Annex 4 (C,3a and C,13aa)", "chapter": "prohibitory", "correct": ["c"], "difficulty": 2, "explanation": {"en": "The red disc means no entry for all vehicles; the overtaking ban shows two cars side by side, red car over black."}, "id": "eu-prohibitory-0002", "media": null, "options": {"en": {"a": "One-way street", "b": "End of all restrictions", "c": "No entry"}}, "stem": {"en": "What does a plain red disc with a white horizontal bar mean?"}, "type": "single"}, {"article": "Vienna Convention, Annex 4 (C,17)", "chapter": "prohibitory", "correct": ["a", "b"], "difficulty": 2, "explanation": {"en": "A crossed-out number in a red-bordered round sign ends a speed limit; the grey crossed disc ends all prohibitions."}, "id": "eu-prohibitory-0003", "media": null, "options": {"en": {"a": "End of maximum speed limit", "b": "End of all prohibitions", "c": "Start of a minimum speed"}}, "stem": {"en": "Which meanings belong to grey round signs with a diagonal bar? (two correct)"}, "type": "multi"}, {"article": "Vienna Convention, Annex 4, Section D (mandatory signs)", "chapter": "mandatory", "correct": ["b"], "difficulty": 1, "explanation": {"en": "Mandatory signs are round and blue with a white symbol: they order a direction or behaviour."}, "id": "eu-mandatory-0001", "media": null, "options": {"en": {"a": "Triangular and red", "b": "Round and blue", "c": "Square and green"}}, "stem": {"en": "What shape and colour do mandatory signs have?"}, "type": "single"}, {"article": "Vienna Convention, Annex 4 (D,1 and D,2)", "chapter": "mandatory", "correct": ["a"], "difficulty": 2, "explanation": {"en": "A blue round sign with a white arrow orders the direction (e.g. turn right); a blue sign with a white bar orders passing on the indicated side."}, "id": "eu-mandatory-0002", "media": null, "options": {"en": {"a": "You must follow the indicated direction", "b": "You may ignore it when traffic is light", "c": "It only recommends a direction"}}, "stem": {"en": "What does a blue round sign with a white arrow require?"}, "type": "single"}, {"article": "Vienna Convention, Annex 4 (D,8 and D,11)", "chapter": "mandatory", "correct": ["c"], "difficulty": 3, "explanation": {"en": "Blue round signs also mark compulsory paths: cycle path, footpath, bridle path, or a roundabout to be circled as shown."}, "id": "eu-mandatory-0003", "media": null, "options": {"en": {"a": "End of cycle route", "b": "No pedestrians allowed", "c": "Compulsory cycle path"}}, "stem": {"en": "What does a blue round sign showing a white bicycle mean?"}, "type": "single"}, {"article": "Vienna Convention, Annex 5, general provisions", "chapter": "informative", "correct": ["a"], "difficulty": 1, "explanation": {"en": "Informative signs are usually rectangular: blue or green for orientation and motorways, with white symbols."}, "id": "eu-informative-0001", "media": null, "options": {"en": {"a": "Rectangular, mostly blue or green", "b": "Triangular with red border", "c": "Round with red border"}}, "stem": {"en": "What is the typical shape of an informative sign?"}, "type": "single"}, {"article": "Vienna Convention, Annex 5 (G,1 and G,11)", "chapter": "informative", "correct": ["b"], "difficulty": 2, "explanation": {"en": "Motorway and express-road signs announce special rules (no stopping, no U-turns, minimum speeds where posted)."}, "id": "eu-informative-0002", "media": null, "options": {"en": {"a": "A residential speed zone", "b": "Start of a motorway", "c": "A parking garage"}}, "stem": {"en": "A blue or green rectangular sign with a stylised highway interchange appears. What begins here?"}, "type": "single"}, {"article": "Vienna Convention, Annex 5 (G,7 and G,12)", "chapter": "informative", "correct": ["a", "c"], "difficulty": 2, "explanation": {"en": "One-way and hospital/first-aid panels are informative: rectangular, guiding rather than ordering."}, "id": "eu-informative-0003", "media": null, "options": {"en": {"a": "One-way street", "b": "No entry", "c": "Hospital nearby"}}, "stem": {"en": "Which two are informative signs? (two correct)"}, "type": "multi"}, {"article": "Vienna Convention, Annex 6 (E,14)", "chapter": "parking", "correct": ["c"], "difficulty": 1, "explanation": {"en": "The blue square with a white P marks a place where parking is allowed."}, "id": "eu-parking-0001", "media": null, "options": {"en": {"a": "No stopping", "b": "No parking", "c": "Parking allowed"}}, "stem": {"en": "What does a blue square sign with a white P mean?"}, "type": "single"}, {"article": "Vienna Convention, Annex 4 (C,18 and C,19)", "chapter": "parking", "correct": ["a"], "difficulty": 2, "explanation": {"en": "A blue disc with a red border and one red diagonal bar bans parking; two bars (a cross) ban even stopping."}, "id": "eu-parking-0002", "media": null, "options": {"en": {"a": "Parking is prohibited, stopping briefly is allowed", "b": "Parking is free of charge", "c": "Only residents may park"}}, "stem": {"en": "What does a blue round sign with a red border and a single red diagonal bar mean?"}, "type": "single"}, {"article": "Vienna Convention, Annex 6 with Annex 7 panels", "chapter": "parking", "correct": ["b"], "difficulty": 3, "explanation": {"en": "Panels under parking signs limit the permission: vehicle categories, time windows, duration, or side of the road."}, "id": "eu-parking-0003", "media": null, "options": {"en": {"a": "The sign is decorative only", "b": "Parking is allowed only as the panel describes", "c": "The panel cancels the sign"}}, "stem": {"en": "A small rectangular panel sits under a parking sign. What does it do?"}, "type": "single"}, {"article": "Vienna Convention, Annex 7, general provisions", "chapter": "panels", "correct": ["a"], "difficulty": 1, "explanation": {"en": "Additional panels (H) are small rectangles placed under a sign to qualify it: distance, length, time, vehicle class."}, "id": "eu-panels-0001", "media": null, "options": {"en": {"a": "They qualify the sign above them", "b": "They cancel the sign above them", "c": "They advertise nearby services"}}, "stem": {"en": "What is the purpose of a small rectangular panel under a traffic sign?"}, "type": "single"}, {"article": "Vienna Convention, Annex 7 (H,2 and H,4)", "chapter": "panels", "correct": ["c"], "difficulty": 2, "explanation": {"en": "'800 m' extends the rule's reach; a time plate like '8-18h' restricts the rule to those hours."}, "id": "eu-panels-0002", "media": null, "options": {"en": {"a": "The sign's serial number", "b": "The fine for violations", "c": "The distance or time the sign applies to"}}, "stem": {"en": "A panel under a no-parking sign reads '8-18h'. What does it mean?"}, "type": "single"}, {"article": "Vienna Convention, Annex 7 (H,9)", "chapter": "panels", "correct": ["b"], "difficulty": 3, "explanation": {"en": "Symbol panels restrict a sign to a vehicle class (e.g. lorries) or exempt one (e.g. 'except buses')."}, "id": "eu-panels-0003", "media": null, "options": {"en": {"a": "The sign applies to nobody", "b": "The sign applies only to the pictured vehicle class", "c": "The panel shows the sign designer"}}, "stem": {"en": "A lorry symbol appears on the panel under a prohibition sign. What follows?"}, "type": "single"}, {"article": "Vienna Convention, Annex 8 (road markings)", "chapter": "markings", "correct": ["a"], "difficulty": 1, "explanation": {"en": "A continuous centre line bans crossing it (no overtaking, no U-turns across it); a broken line allows crossing when safe."}, "id": "eu-markings-0001", "media": null, "options": {"en": {"a": "You must not cross or straddle it", "b": "You may park on it briefly", "c": "It marks a bicycle lane"}}, "stem": {"en": "What does a continuous white centre line require?"}, "type": "single"}, {"article": "Vienna Convention, Annex 8 (stop lines and crossings)", "chapter": "markings", "correct": ["b"], "difficulty": 2, "explanation": {"en": "The transverse stop line marks where to halt for a STOP sign, red light, or give-way where required."}, "id": "eu-markings-0002", "media": null, "options": {"en": {"a": "The start of a parking bay", "b": "The place to stop when required", "c": "A pedestrian-only area"}}, "stem": {"en": "What is the wide white line across your lane before an intersection for?"}, "type": "single"}, {"article": "Vienna Convention, Annex 8 (arrows and zebra)", "chapter": "markings", "correct": ["a", "c"], "difficulty": 2, "explanation": {"en": "Lane arrows channel traffic by direction; zebra stripes mark pedestrian crossings where walkers have priority."}, "id": "eu-markings-0003", "media": null, "options": {"en": {"a": "Lane arrows", "b": "Yellow box junctions everywhere", "c": "Zebra stripes"}}, "stem": {"en": "Which two markings organise lanes and pedestrian priority? (two correct)"}, "type": "multi"}, {"article": "Vienna Convention, Articles 23-24 (light signals)", "chapter": "signals", "correct": ["c"], "difficulty": 1, "explanation": {"en": "Red means stop, amber (alone after green) means stop unless unable to, green means go when the way is clear."}, "id": "eu-signals-0001", "media": null, "options": {"en": {"a": "Red-amber-green all mean go", "b": "Amber always means accelerate", "c": "Red stops, green allows passage when clear"}}, "stem": {"en": "What do the three colours of a traffic light mean in order?"}, "type": "single"}, {"article": "Vienna Convention, Article 24 (flashing signals)", "chapter": "signals", "correct": ["a"], "difficulty": 2, "explanation": {"en": "A flashing amber light means proceed with caution: priority rules apply as if the light were absent."}, "id": "eu-signals-0002", "media": null, "options": {"en": {"a": "Proceed carefully, normal priority rules apply", "b": "Stop and wait for green", "c": "The lights are broken, ignore all rules"}}, "stem": {"en": "The traffic light flashes amber. What do you do?"}, "type": "single"}, {"article": "Vienna Convention, Article 23 (lane signals)", "chapter": "signals", "correct": ["b"], "difficulty": 3, "explanation": {"en": "A red cross above a lane closes it; a green arrow opens it. Reversible lanes switch with traffic flow."}, "id": "eu-signals-0003", "media": null, "options": {"en": {"a": "Decorative lighting", "b": "Red cross closes the lane, green arrow opens it", "c": "Speed limit for the lane"}}, "stem": {"en": "What do signals mounted above individual lanes mean?"}, "type": "single"}]}
+{
+  "chapters": [
+    {
+      "id": "warning",
+      "title": {
+        "en": "Danger warning signs"
+      }
+    },
+    {
+      "id": "priority",
+      "title": {
+        "en": "Priority signs"
+      }
+    },
+    {
+      "id": "level-crossing",
+      "title": {
+        "en": "Level crossings"
+      }
+    },
+    {
+      "id": "prohibitory",
+      "title": {
+        "en": "Prohibitory signs"
+      }
+    },
+    {
+      "id": "mandatory",
+      "title": {
+        "en": "Mandatory signs"
+      }
+    },
+    {
+      "id": "informative",
+      "title": {
+        "en": "Informative signs"
+      }
+    },
+    {
+      "id": "parking",
+      "title": {
+        "en": "Standing and parking signs"
+      }
+    },
+    {
+      "id": "panels",
+      "title": {
+        "en": "Additional panels"
+      }
+    },
+    {
+      "id": "markings",
+      "title": {
+        "en": "Road markings"
+      }
+    },
+    {
+      "id": "signals",
+      "title": {
+        "en": "Light signals"
+      }
+    }
+  ],
+  "examFormat": {
+    "passMinCorrect": 22,
+    "questionCount": 26,
+    "timeLimitSec": 1800
+  },
+  "meta": {
+    "country": "eu",
+    "languages": [
+      "en"
+    ],
+    "lawValidThrough": "2026-09",
+    "packVersion": "0.1.0",
+    "sources": [
+      "https://unece.org/transport/publications/convention-road-signs-and-signals-1968-european-agreement-supplementing"
+    ]
+  },
+  "questions": [
+    {
+      "article": "Vienna Convention, Annex 1, Section A",
+      "chapter": "warning",
+      "correct": [
+        "b"
+      ],
+      "difficulty": 1,
+      "explanation": {
+        "en": "Danger warning signs are equilateral triangles: white or yellow ground, red border, black symbol, point up."
+      },
+      "id": "eu-warning-0001",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Round with a red border",
+          "b": "Triangular with a red border",
+          "c": "Square and blue"
+        }
+      },
+      "stem": {
+        "en": "What is the standard shape of a danger warning sign?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 1, general provisions",
+      "chapter": "warning",
+      "correct": [
+        "b"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "Outside built-up areas warning signs stand far enough ahead (commonly 150 to 250 m) that drivers can react in time."
+      },
+      "id": "eu-warning-0002",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Immediately at the hazard",
+          "b": "Well in advance of the hazard",
+          "c": "Only after passing the hazard"
+        }
+      },
+      "stem": {
+        "en": "Where is a danger warning sign placed relative to the hazard?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 1, Section C",
+      "chapter": "warning",
+      "correct": [
+        "a",
+        "c"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "Both the double-bend symbol and the slippery-road symbol are danger warnings: triangular, red border."
+      },
+      "id": "eu-warning-0003",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Double bend ahead",
+          "b": "End of priority road",
+          "c": "Slippery road"
+        }
+      },
+      "stem": {
+        "en": "Which two meanings belong to triangular red-bordered signs? (two correct)"
+      },
+      "type": "multi"
+    },
+    {
+      "article": "Vienna Convention, Annex 2 (B,1 and B,2)",
+      "chapter": "priority",
+      "correct": [
+        "c"
+      ],
+      "difficulty": 1,
+      "explanation": {
+        "en": "Give way is an inverted triangle; STOP is an octagon with STOP in white on red."
+      },
+      "id": "eu-priority-0001",
+      "media": "give-way.svg",
+      "options": {
+        "en": {
+          "a": "Both are round",
+          "b": "Both are triangular",
+          "c": "Give way is an inverted triangle, STOP is octagonal"
+        }
+      },
+      "stem": {
+        "en": "How do the GIVE WAY and STOP signs differ in shape?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 2 (B,3)",
+      "chapter": "priority",
+      "correct": [
+        "a"
+      ],
+      "difficulty": 1,
+      "explanation": {
+        "en": "The yellow diamond marks a priority road: you have priority at every intersection until the end-of-priority sign."
+      },
+      "id": "eu-priority-0002",
+      "media": "priority-road.svg",
+      "options": {
+        "en": {
+          "a": "You are on a priority road",
+          "b": "You must stop at every junction",
+          "c": "Overtaking is prohibited"
+        }
+      },
+      "stem": {
+        "en": "What does a yellow diamond sign tell you?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 2 (B,5 and B,6)",
+      "chapter": "priority",
+      "correct": [
+        "b"
+      ],
+      "difficulty": 3,
+      "explanation": {
+        "en": "The red-white arrow sign gives priority to oncoming traffic; the blue-red square gives you priority over oncoming vehicles on a narrow section."
+      },
+      "id": "eu-priority-0003",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Both give you priority",
+          "b": "Round red-white yields to oncoming traffic; square blue-red keeps your priority",
+          "c": "Both apply only inside tunnels"
+        }
+      },
+      "stem": {
+        "en": "On a narrow road, what is the difference between the round and square priority signs?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 3, Section A",
+      "chapter": "level-crossing",
+      "correct": [
+        "a"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "The St. Andrew's cross marks a level crossing, placed at the crossing itself."
+      },
+      "id": "eu-level-crossing-0001",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Level crossing ahead or at the crossing",
+          "b": "Tram stop",
+          "c": "Railway station parking"
+        }
+      },
+      "stem": {
+        "en": "What does the X-shaped St. Andrew's cross indicate?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 1, Section A (automatic level crossing with gates)",
+      "chapter": "level-crossing",
+      "correct": [
+        "c"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "You must stop when the barrier starts to lower or the red lights flash, and never weave around a lowered barrier."
+      },
+      "id": "eu-level-crossing-0002",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Speed up to beat the barrier",
+          "b": "Stop only if a train is visible",
+          "c": "Stop and wait until the barrier rises and lights stop"
+        }
+      },
+      "stem": {
+        "en": "The barrier at a level crossing starts to lower. What do you do?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 7 (panels) with Annex 1",
+      "chapter": "level-crossing",
+      "correct": [
+        "b"
+      ],
+      "difficulty": 3,
+      "explanation": {
+        "en": "The three countdown markers show roughly 240 m, 160 m and 80 m to a level crossing outside built-up areas."
+      },
+      "id": "eu-level-crossing-0003",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Speed limits for trucks",
+          "b": "Remaining distance to the level crossing",
+          "c": "Number of tracks"
+        }
+      },
+      "stem": {
+        "en": "Red-and-white striped posts with three, two and one bars appear before a crossing. What do they mean?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 4, Section A (prohibition and restriction)",
+      "chapter": "prohibitory",
+      "correct": [
+        "a"
+      ],
+      "difficulty": 1,
+      "explanation": {
+        "en": "Prohibitory signs are round with a red border (no entry, no overtaking, speed limits)."
+      },
+      "id": "eu-prohibitory-0001",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Round with a red border",
+          "b": "Round and blue",
+          "c": "Triangular and yellow"
+        }
+      },
+      "stem": {
+        "en": "What shape do prohibitory signs have?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 4 (C,3a and C,13aa)",
+      "chapter": "prohibitory",
+      "correct": [
+        "c"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "The red disc means no entry for all vehicles; the overtaking ban shows two cars side by side, red car over black."
+      },
+      "id": "eu-prohibitory-0002",
+      "media": "no-entry.svg",
+      "options": {
+        "en": {
+          "a": "One-way street",
+          "b": "End of all restrictions",
+          "c": "No entry"
+        }
+      },
+      "stem": {
+        "en": "What does a plain red disc with a white horizontal bar mean?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 4 (C,17)",
+      "chapter": "prohibitory",
+      "correct": [
+        "a",
+        "b"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "A crossed-out number in a red-bordered round sign ends a speed limit; the grey crossed disc ends all prohibitions."
+      },
+      "id": "eu-prohibitory-0003",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "End of maximum speed limit",
+          "b": "End of all prohibitions",
+          "c": "Start of a minimum speed"
+        }
+      },
+      "stem": {
+        "en": "Which meanings belong to grey round signs with a diagonal bar? (two correct)"
+      },
+      "type": "multi"
+    },
+    {
+      "article": "Vienna Convention, Annex 4, Section D (mandatory signs)",
+      "chapter": "mandatory",
+      "correct": [
+        "b"
+      ],
+      "difficulty": 1,
+      "explanation": {
+        "en": "Mandatory signs are round and blue with a white symbol: they order a direction or behaviour."
+      },
+      "id": "eu-mandatory-0001",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Triangular and red",
+          "b": "Round and blue",
+          "c": "Square and green"
+        }
+      },
+      "stem": {
+        "en": "What shape and colour do mandatory signs have?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 4 (D,1 and D,2)",
+      "chapter": "mandatory",
+      "correct": [
+        "a"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "A blue round sign with a white arrow orders the direction (e.g. turn right); a blue sign with a white bar orders passing on the indicated side."
+      },
+      "id": "eu-mandatory-0002",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "You must follow the indicated direction",
+          "b": "You may ignore it when traffic is light",
+          "c": "It only recommends a direction"
+        }
+      },
+      "stem": {
+        "en": "What does a blue round sign with a white arrow require?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 4 (D,8 and D,11)",
+      "chapter": "mandatory",
+      "correct": [
+        "c"
+      ],
+      "difficulty": 3,
+      "explanation": {
+        "en": "Blue round signs also mark compulsory paths: cycle path, footpath, bridle path, or a roundabout to be circled as shown."
+      },
+      "id": "eu-mandatory-0003",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "End of cycle route",
+          "b": "No pedestrians allowed",
+          "c": "Compulsory cycle path"
+        }
+      },
+      "stem": {
+        "en": "What does a blue round sign showing a white bicycle mean?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 5, general provisions",
+      "chapter": "informative",
+      "correct": [
+        "a"
+      ],
+      "difficulty": 1,
+      "explanation": {
+        "en": "Informative signs are usually rectangular: blue or green for orientation and motorways, with white symbols."
+      },
+      "id": "eu-informative-0001",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Rectangular, mostly blue or green",
+          "b": "Triangular with red border",
+          "c": "Round with red border"
+        }
+      },
+      "stem": {
+        "en": "What is the typical shape of an informative sign?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 5 (G,1 and G,11)",
+      "chapter": "informative",
+      "correct": [
+        "b"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "Motorway and express-road signs announce special rules (no stopping, no U-turns, minimum speeds where posted)."
+      },
+      "id": "eu-informative-0002",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "A residential speed zone",
+          "b": "Start of a motorway",
+          "c": "A parking garage"
+        }
+      },
+      "stem": {
+        "en": "A blue or green rectangular sign with a stylised highway interchange appears. What begins here?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 5 (G,7 and G,12)",
+      "chapter": "informative",
+      "correct": [
+        "a",
+        "c"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "One-way and hospital/first-aid panels are informative: rectangular, guiding rather than ordering."
+      },
+      "id": "eu-informative-0003",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "One-way street",
+          "b": "No entry",
+          "c": "Hospital nearby"
+        }
+      },
+      "stem": {
+        "en": "Which two are informative signs? (two correct)"
+      },
+      "type": "multi"
+    },
+    {
+      "article": "Vienna Convention, Annex 6 (E,14)",
+      "chapter": "parking",
+      "correct": [
+        "c"
+      ],
+      "difficulty": 1,
+      "explanation": {
+        "en": "The blue square with a white P marks a place where parking is allowed."
+      },
+      "id": "eu-parking-0001",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "No stopping",
+          "b": "No parking",
+          "c": "Parking allowed"
+        }
+      },
+      "stem": {
+        "en": "What does a blue square sign with a white P mean?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 4 (C,18 and C,19)",
+      "chapter": "parking",
+      "correct": [
+        "a"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "A blue disc with a red border and one red diagonal bar bans parking; two bars (a cross) ban even stopping."
+      },
+      "id": "eu-parking-0002",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Parking is prohibited, stopping briefly is allowed",
+          "b": "Parking is free of charge",
+          "c": "Only residents may park"
+        }
+      },
+      "stem": {
+        "en": "What does a blue round sign with a red border and a single red diagonal bar mean?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 6 with Annex 7 panels",
+      "chapter": "parking",
+      "correct": [
+        "b"
+      ],
+      "difficulty": 3,
+      "explanation": {
+        "en": "Panels under parking signs limit the permission: vehicle categories, time windows, duration, or side of the road."
+      },
+      "id": "eu-parking-0003",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "The sign is decorative only",
+          "b": "Parking is allowed only as the panel describes",
+          "c": "The panel cancels the sign"
+        }
+      },
+      "stem": {
+        "en": "A small rectangular panel sits under a parking sign. What does it do?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 7, general provisions",
+      "chapter": "panels",
+      "correct": [
+        "a"
+      ],
+      "difficulty": 1,
+      "explanation": {
+        "en": "Additional panels (H) are small rectangles placed under a sign to qualify it: distance, length, time, vehicle class."
+      },
+      "id": "eu-panels-0001",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "They qualify the sign above them",
+          "b": "They cancel the sign above them",
+          "c": "They advertise nearby services"
+        }
+      },
+      "stem": {
+        "en": "What is the purpose of a small rectangular panel under a traffic sign?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 7 (H,2 and H,4)",
+      "chapter": "panels",
+      "correct": [
+        "c"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "'800 m' extends the rule's reach; a time plate like '8-18h' restricts the rule to those hours."
+      },
+      "id": "eu-panels-0002",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "The sign's serial number",
+          "b": "The fine for violations",
+          "c": "The distance or time the sign applies to"
+        }
+      },
+      "stem": {
+        "en": "A panel under a no-parking sign reads '8-18h'. What does it mean?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 7 (H,9)",
+      "chapter": "panels",
+      "correct": [
+        "b"
+      ],
+      "difficulty": 3,
+      "explanation": {
+        "en": "Symbol panels restrict a sign to a vehicle class (e.g. lorries) or exempt one (e.g. 'except buses')."
+      },
+      "id": "eu-panels-0003",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "The sign applies to nobody",
+          "b": "The sign applies only to the pictured vehicle class",
+          "c": "The panel shows the sign designer"
+        }
+      },
+      "stem": {
+        "en": "A lorry symbol appears on the panel under a prohibition sign. What follows?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 8 (road markings)",
+      "chapter": "markings",
+      "correct": [
+        "a"
+      ],
+      "difficulty": 1,
+      "explanation": {
+        "en": "A continuous centre line bans crossing it (no overtaking, no U-turns across it); a broken line allows crossing when safe."
+      },
+      "id": "eu-markings-0001",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "You must not cross or straddle it",
+          "b": "You may park on it briefly",
+          "c": "It marks a bicycle lane"
+        }
+      },
+      "stem": {
+        "en": "What does a continuous white centre line require?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 8 (stop lines and crossings)",
+      "chapter": "markings",
+      "correct": [
+        "b"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "The transverse stop line marks where to halt for a STOP sign, red light, or give-way where required."
+      },
+      "id": "eu-markings-0002",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "The start of a parking bay",
+          "b": "The place to stop when required",
+          "c": "A pedestrian-only area"
+        }
+      },
+      "stem": {
+        "en": "What is the wide white line across your lane before an intersection for?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Annex 8 (arrows and zebra)",
+      "chapter": "markings",
+      "correct": [
+        "a",
+        "c"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "Lane arrows channel traffic by direction; zebra stripes mark pedestrian crossings where walkers have priority."
+      },
+      "id": "eu-markings-0003",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Lane arrows",
+          "b": "Yellow box junctions everywhere",
+          "c": "Zebra stripes"
+        }
+      },
+      "stem": {
+        "en": "Which two markings organise lanes and pedestrian priority? (two correct)"
+      },
+      "type": "multi"
+    },
+    {
+      "article": "Vienna Convention, Articles 23-24 (light signals)",
+      "chapter": "signals",
+      "correct": [
+        "c"
+      ],
+      "difficulty": 1,
+      "explanation": {
+        "en": "Red means stop, amber (alone after green) means stop unless unable to, green means go when the way is clear."
+      },
+      "id": "eu-signals-0001",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Red-amber-green all mean go",
+          "b": "Amber always means accelerate",
+          "c": "Red stops, green allows passage when clear"
+        }
+      },
+      "stem": {
+        "en": "What do the three colours of a traffic light mean in order?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Article 24 (flashing signals)",
+      "chapter": "signals",
+      "correct": [
+        "a"
+      ],
+      "difficulty": 2,
+      "explanation": {
+        "en": "A flashing amber light means proceed with caution: priority rules apply as if the light were absent."
+      },
+      "id": "eu-signals-0002",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Proceed carefully, normal priority rules apply",
+          "b": "Stop and wait for green",
+          "c": "The lights are broken, ignore all rules"
+        }
+      },
+      "stem": {
+        "en": "The traffic light flashes amber. What do you do?"
+      },
+      "type": "single"
+    },
+    {
+      "article": "Vienna Convention, Article 23 (lane signals)",
+      "chapter": "signals",
+      "correct": [
+        "b"
+      ],
+      "difficulty": 3,
+      "explanation": {
+        "en": "A red cross above a lane closes it; a green arrow opens it. Reversible lanes switch with traffic flow."
+      },
+      "id": "eu-signals-0003",
+      "media": null,
+      "options": {
+        "en": {
+          "a": "Decorative lighting",
+          "b": "Red cross closes the lane, green arrow opens it",
+          "c": "Speed limit for the lane"
+        }
+      },
+      "stem": {
+        "en": "What do signals mounted above individual lanes mean?"
+      },
+      "type": "single"
+    }
+  ]
+}

@@ -57,6 +57,10 @@ def check_pack(path: Path) -> None:
             err(name, f"{qid}: missing law article citation")
         if not q.get("explanation"):
             err(name, f"{qid}: missing explanation")
+        if q.get("media"):
+            media_path = path.parent / "media" / q["media"]
+            if not media_path.is_file():
+                err(name, f"{qid}: media file missing: {q['media']}")
     fseen: set[str] = set()
     for f in pack.get("fines", []):
         fid = f.get("id", "?")
