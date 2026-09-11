@@ -57,6 +57,19 @@ def check_pack(path: Path) -> None:
             err(name, f"{qid}: missing law article citation")
         if not q.get("explanation"):
             err(name, f"{qid}: missing explanation")
+    fseen: set[str] = set()
+    for f in pack.get("fines", []):
+        fid = f.get("id", "?")
+        if fid in fseen:
+            err(name, f"duplicate fine id: {fid}")
+        fseen.add(fid)
+        if not f.get("articol"):
+            err(name, f"{fid}: missing article")
+        if not f.get("fapta"):
+            err(name, f"{fid}: missing fapta")
+        for lang in pack["meta"]["languages"]:
+            if lang not in f.get("fapta", {}):
+                err(name, f"{fid}: fapta missing language {lang}")
     try:
         year_s, month_s = pack["meta"]["lawValidThrough"].split("-")
         valid = datetime.date(int(year_s), int(month_s), 1)

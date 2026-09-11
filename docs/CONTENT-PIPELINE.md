@@ -19,7 +19,9 @@ explanation, `lawValidThrough` fresh.
 
 ## Terminology review
 
-Seed from DE official EN exam wording + UK Highway Code; all EN strings
-tagged `review:terminology` until a native speaker signs off. Reviewers
+Interim authority (no in-person reviewer available): UNECE Vienna Convention
+EN text for signs/signals wording, UK Highway Code for general EN driving
+terms, DE official EN exam wording for exam-style phrasing. All EN strings
+stay tagged `review:terminology` until a native speaker signs off. Reviewers
 sourced online first (driving-instructor forums, EN-exam guide authors),
 in-person handoff supported: export `content/packs/<cc>/review.csv`.
