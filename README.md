@@ -5,7 +5,7 @@ fully offline macOS app (Glaze), built country-pack by country-pack.
 
 **Status:** scaffold + recovered-corpus inventory. No app code yet.
 
-## The loop (stolen from CloudQuest, reskinned for roads)
+## The loop (inspired by CloudQuest, reskinned for roads)
 
 Avatar learner → instructor NPC hands you a scenario ("your friend failed on
 priority intersections") → 2-minute micro-lesson → guided quiz (Scripted mode)

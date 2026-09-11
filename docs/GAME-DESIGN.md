@@ -11,7 +11,7 @@
 6. **Payoff**: district lights up, badge, XP; fail → cracked-district repair
    (Duolingo repair loop).
 
-## Scenario tasks (SimuLearn steals)
+## Scenario tasks (inspired by SimuLearn)
 
 - **Incomplete-diagram**: half-drawn intersection, place priority order.
 - **Customer-job**: "get this delivery across town legally" — route + rule
