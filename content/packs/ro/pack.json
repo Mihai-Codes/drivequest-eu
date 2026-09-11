@@ -1392,6 +1392,380 @@
         "ro": "Gheata, frunzele, zapada si zloata reduc aderenta; asfaltul uscat e suprafata de referinta."
       },
       "media": null
+    },
+    {
+      "id": "ro-pozitie-0001",
+      "chapter": "pozitie",
+      "type": "single",
+      "difficulty": 1,
+      "article": "OUG 195/2002 — circulatia pe benzi",
+      "stem": {
+        "en": "On a road with several lanes per direction, which lane do you normally use?",
+        "ro": "Pe un drum cu mai multe benzi pe sens, pe care banda circuli in mod normal?"
+      },
+      "options": {
+        "en": {
+          "a": "The rightmost free lane",
+          "b": "Always the leftmost",
+          "c": "The middle, to be visible"
+        },
+        "ro": {
+          "a": "Prima banda libera din dreapta",
+          "b": "Mereu cea mai din stanga",
+          "c": "Cea din mijloc, ca sa fii vizibil"
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Keep right; left lanes are for overtaking or when right lanes are occupied.",
+        "ro": "Se circula pe dreapta; benzile din stanga sunt pentru depasire sau cand cele din dreapta sunt ocupate."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-pozitie-0002",
+      "chapter": "pozitie",
+      "type": "single",
+      "difficulty": 2,
+      "article": "OUG 195/2002, art. 50 alin. (3) — banda de urgenta",
+      "stem": {
+        "en": "When may you drive or stop on the emergency lane of a motorway?",
+        "ro": "Cand ai voie sa circuli sau sa opresti pe banda de urgenta a autostrazii?"
+      },
+      "options": {
+        "en": {
+          "a": "To overtake a slow truck",
+          "b": "Only in justified cases (breakdown, emergency)",
+          "c": "Whenever traffic is heavy"
+        },
+        "ro": {
+          "a": "Pentru a depasi un camion lent",
+          "b": "Doar in cazuri justificate (pana, urgenta)",
+          "c": "Ori de cate ori e trafic intens"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Emergency lane is banned for driving, stopping and parking except justified cases and priority vehicles.",
+        "ro": "Banda de urgenta e interzisa circulatiei, opririi si stationarii, in afara cazurilor justificate si a vehiculelor prioritare."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-pozitie-0003",
+      "chapter": "pozitie",
+      "type": "single",
+      "difficulty": 2,
+      "article": "Regulamentul de aplicare HG 1391/2006 — schimbarea benzii",
+      "stem": {
+        "en": "What must you do before changing lanes?",
+        "ro": "Ce trebuie sa faci inainte de a schimba banda?"
+      },
+      "options": {
+        "en": {
+          "a": "Signal and make sure you endanger and hinder nobody",
+          "b": "Just honk",
+          "c": "Nothing if you are faster"
+        },
+        "ro": {
+          "a": "Semnalizezi si te asiguri ca nu periclitezi si nu stinjenesti pe nimeni",
+          "b": "Doar claxonezi",
+          "c": "Nimic daca esti mai rapid"
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Signal in advance + mirror and blind-spot check, every time.",
+        "ro": "Semnalizare din timp + oglinzi si unghi mort, de fiecare data."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-viteza-0002",
+      "chapter": "viteza",
+      "type": "single",
+      "difficulty": 2,
+      "article": "OUG 195/2002, art. 49 alin. (4) — limite in afara localitatilor",
+      "stem": {
+        "en": "Maximum speed for cars on an express road?",
+        "ro": "Viteza maxima pentru autoturisme pe drumurile expres?"
+      },
+      "options": {
+        "en": {
+          "a": "100 km/h",
+          "b": "120 km/h",
+          "c": "130 km/h"
+        },
+        "ro": {
+          "a": "100 km/h",
+          "b": "120 km/h",
+          "c": "130 km/h"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "130 motorways, 120 express, 100 E-roads, 90 other roads outside built-up areas.",
+        "ro": "130 autostrazi, 120 expres, 100 drumuri europene, 90 celelalte drumuri, in afara localitatilor."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-viteza-0003",
+      "chapter": "viteza",
+      "type": "single",
+      "difficulty": 2,
+      "article": "OUG 195/2002, art. 49 alin. (4) — drumuri europene",
+      "stem": {
+        "en": "Maximum speed for cars on a European E-road outside town?",
+        "ro": "Viteza maxima pentru autoturisme pe un drum national european (E), in afara localitatilor?"
+      },
+      "options": {
+        "en": {
+          "a": "90 km/h",
+          "b": "100 km/h",
+          "c": "120 km/h"
+        },
+        "ro": {
+          "a": "90 km/h",
+          "b": "100 km/h",
+          "c": "120 km/h"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "E-roads: 100; other national/county roads: 90.",
+        "ro": "Drumurile europene: 100; celelalte nationale/judetene: 90."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-viteza-0004",
+      "chapter": "viteza",
+      "type": "single",
+      "difficulty": 3,
+      "article": "OUG 195/2002, art. 49 alin. (2) — limite urbane ridicate",
+      "stem": {
+        "en": "Can the urban limit ever exceed 50 km/h?",
+        "ro": "Poate limita din localitati sa depaseasca 50 km/h?"
+      },
+      "options": {
+        "en": {
+          "a": "Never",
+          "b": "Yes, up to 80 km/h on certain sectors, with traffic-police approval",
+          "c": "Yes, up to 130 wherever the road is wide"
+        },
+        "ro": {
+          "a": "Niciodata",
+          "b": "Da, pana la 80 km/h pe anumite sectoare, cu avizul politiei rutiere",
+          "c": "Da, pana la 130 oriunde drumul e lat"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Higher urban limits are capped at 80 and need police approval.",
+        "ro": "Limitele urbane ridicate sunt plafonate la 80 si necesita avizul politiei."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-depasire-0002",
+      "chapter": "depasire",
+      "type": "single",
+      "difficulty": 1,
+      "article": "Regulamentul de aplicare HG 1391/2006 — manevra de depasire",
+      "stem": {
+        "en": "Before overtaking you must first…",
+        "ro": "Inainte de depasire trebuie mai intai…"
+      },
+      "options": {
+        "en": {
+          "a": "Make sure nobody started overtaking you and the manoeuvre is safe end-to-end",
+          "b": "Flash high beams twice",
+          "c": "Honk continuously"
+        },
+        "ro": {
+          "a": "Sa te asiguri ca nimeni nu te-a inceput depasirea si ca manevra e sigura cap-coada",
+          "b": "Sa clipesti de doua ori cu faza lunga",
+          "c": "Sa claxonezi continuu"
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "en": "Mirror check (no one overtaking you), signal, safe gap ahead, return without cutting in.",
+        "ro": "Oglinda (nimeni nu te depaseste), semnal, spatiu sigur in fata, revenire fara a-l taia pe cel depasit."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-depasire-0003",
+      "chapter": "depasire",
+      "type": "single",
+      "difficulty": 2,
+      "article": "Conduita preventiva + Regulamentul de aplicare HG 1391/2006",
+      "stem": {
+        "en": "Overtaking a cyclist: what lateral distance do you keep?",
+        "ro": "La depasirea unui biciclist, ce distanta laterala pastrezi?"
+      },
+      "options": {
+        "en": {
+          "a": "A few centimetres is enough",
+          "b": "A safe lateral gap (the wider the speed, the wider the gap)",
+          "c": "You may brush past if you honk"
+        },
+        "ro": {
+          "a": "Cativa centimetri sunt suficienti",
+          "b": "Un interval lateral de siguranta (cu cat viteza e mai mare, cu atat mai mare)",
+          "c": "Poti trece la limita daca claxonezi"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Cyclists wobble; speed-proportional lateral gap, full lane when possible.",
+        "ro": "Biciclistii serpesc; interval lateral proportional cu viteza, toata banda cand se poate."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-depasire-0004",
+      "chapter": "depasire",
+      "type": "multi",
+      "difficulty": 3,
+      "article": "Regulamentul de aplicare HG 1391/2006 — depasiri interzise",
+      "stem": {
+        "en": "Overtaking is banned where? (two correct)",
+        "ro": "Depasirea este interzisa unde? (doua corecte)"
+      },
+      "options": {
+        "en": {
+          "a": "In unsigned intersections",
+          "b": "On a wide boulevard with full visibility",
+          "c": "At level crossings"
+        },
+        "ro": {
+          "a": "In intersectiile nedirijate",
+          "b": "Pe un bulevard lat cu vizibilitate totala",
+          "c": "La trecerile la nivel cu calea ferata"
+        }
+      },
+      "correct": [
+        "a",
+        "c"
+      ],
+      "explanation": {
+        "en": "Intersections, crossings, pedestrian crossings, poor visibility: no overtaking.",
+        "ro": "Intersectii, treceri de cale ferata, treceri de pietoni, vizibilitate redusa: fara depasiri."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-oprire-0002",
+      "chapter": "oprire",
+      "type": "single",
+      "difficulty": 2,
+      "article": "OUG 195/2002 + Regulamentul de aplicare — oprirea pe autostrada",
+      "stem": {
+        "en": "Stopping on a motorway is allowed…",
+        "ro": "Oprirea pe autostrada este permisa…"
+      },
+      "options": {
+        "en": {
+          "a": "Anywhere on the right edge",
+          "b": "Only in specially arranged places (parking, service areas, emergency lane in justified cases)",
+          "c": "On the fast lane if hazards are on"
+        },
+        "ro": {
+          "a": "Oriunde pe marginea dreapta",
+          "b": "Doar in spatii special amenajate (parcari, spatii de servicii, urgenta in cazuri justificate)",
+          "c": "Pe banda rapida daca ai avariile pornite"
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "en": "Motorway stops happen in parking/service bays; the carriageway itself is off-limits.",
+        "ro": "Pe autostrada opresti in parcari/spatii de servicii; carosabilul e interzis."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-oprire-0003",
+      "chapter": "oprire",
+      "type": "single",
+      "difficulty": 2,
+      "article": "Regulamentul de aplicare HG 1391/2006 — locuri interzise opririi",
+      "stem": {
+        "en": "Stopping is banned in all these places. Which one is the odd one out (allowed)?",
+        "ro": "Oprirea e interzisa in toate aceste locuri. Care e exceptia (permisa)?"
+      },
+      "options": {
+        "en": {
+          "a": "In a tunnel",
+          "b": "On a bridge",
+          "c": "In a marked parking bay"
+        },
+        "ro": {
+          "a": "In tunel",
+          "b": "Pe pod",
+          "c": "Intr-un loc marcat pentru parcare"
+        }
+      },
+      "correct": [
+        "c"
+      ],
+      "explanation": {
+        "en": "Tunnels, bridges, crossings, intersections: no stopping. Marked bays exist precisely for it.",
+        "ro": "Tuneluri, poduri, treceri, intersectii: fara oprire. Locurile marcate exista tocmai pentru asta."
+      },
+      "media": null
+    },
+    {
+      "id": "ro-oprire-0004",
+      "chapter": "oprire",
+      "type": "multi",
+      "difficulty": 3,
+      "article": "Regulamentul de aplicare HG 1391/2006 — oprire vs stationare",
+      "stem": {
+        "en": "Stopping (oprire) vs parking (stationare): which statements hold? (two correct)",
+        "ro": "Oprire vs stationare: ce afirmatii sunt corecte? (doua corecte)"
+      },
+      "options": {
+        "en": {
+          "a": "Stopping means short immobilisation for boarding or loading",
+          "b": "Every stopping ban automatically bans parking too",
+          "c": "Parking is any immobilisation beyond boarding/loading time"
+        },
+        "ro": {
+          "a": "Oprirea inseamna imobilizare scurta pentru urcare/coborare sau incarcare",
+          "b": "Orice interzicere a opririi interzice automat si stationarea",
+          "c": "Stationarea e orice imobilizare peste timpul de urcare/incarcare"
+        }
+      },
+      "correct": [
+        "a",
+        "c"
+      ],
+      "explanation": {
+        "en": "Stopping serves boarding/loading; longer immobilisation is parking. A stopping ban covers parking; the reverse is not automatic.",
+        "ro": "Oprirea serveste urcarea/incarcarea; peste asta e stationare. Interdictia de oprire o include pe cea de stationare, nu si invers."
+      },
+      "media": null
     }
   ]
 }
