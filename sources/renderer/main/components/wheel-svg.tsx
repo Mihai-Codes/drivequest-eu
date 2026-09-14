@@ -1,101 +1,105 @@
-// Porsche-like steering wheel icon - clean, smooth, professional
-// Silver/dark grey rim with subtle gold accent on the hub
-// Background: solid blue (no square visible)
+// Pack-specific steering wheel marks - metallic rim, shaped spokes,
+// transparent background. Variant drives the accent + hub emblem:
+// "eu" = EU blue with a 12-star hub ring, "ro" = graphite with a
+// tricolor hub shield.
 
 interface WheelSvgProps {
   className?: string;
+  variant?: "eu" | "ro";
 }
 
-export function WheelSvg({ className = "" }: WheelSvgProps) {
-  const style = { width: "100%", height: "100%", maxWidth: 280, maxHeight: 280 };
+const ACCENT = {
+  eu: "#3b82f6",
+  ro: "#f59e0b",
+} as const;
+
+function polar(cx: number, cy: number, r: number, deg: number): [number, number] {
+  const rad = ((deg - 90) * Math.PI) / 180;
+  return [cx + Math.cos(rad) * r, cy + Math.sin(rad) * r];
+}
+
+export function WheelSvg({ className = "", variant = "eu" }: WheelSvgProps) {
+  const accent = ACCENT[variant];
+  const gid = (n: string): string => `${variant}-${n}`;
+  // Three shaped spokes: two upper (210/330 clock positions -> 150/30 deg
+  // in screen angles below) and one straight down.
+  const spokes = [150, 30, 270];
   return (
-    <svg
-      viewBox="0 0 200 200"
-      className={className}
-      aria-hidden="true"
-      style={style}
-    >
-      {/* Solid blue background */}
-      <rect x={0} y={0} width={200} height={200} fill="#1e3a8a" />
+    <svg viewBox="0 0 200 200" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id={gid("rim")} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#e6eaf0" />
+          <stop offset="0.45" stopColor="#9aa1ad" />
+          <stop offset="0.75" stopColor="#5b616b" />
+          <stop offset="1" stopColor="#c9ced7" />
+        </linearGradient>
+        <radialGradient id={gid("hub")} cx="0.38" cy="0.32" r="0.9">
+          <stop offset="0" stopColor="#3a3f47" />
+          <stop offset="0.7" stopColor="#22262c" />
+          <stop offset="1" stopColor="#14171b" />
+        </radialGradient>
+        <linearGradient id={gid("spoke")} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#4a5058" />
+          <stop offset="1" stopColor="#23272d" />
+        </linearGradient>
+      </defs>
 
-      {/* Outer rim - smooth silver/dark grey */}
-      <circle
-        cx={100}
-        cy={100}
-        r={72}
-        fill="none"
-        stroke="#c8cdd6"
-        strokeWidth={6}
-        opacity={0.95}
-      />
+      {/* Rim */}
+      <circle cx={100} cy={100} r={70} fill="none" stroke={`url(#${gid("rim")})`} strokeWidth={15} />
+      {/* Accent pinstripe on the rim */}
+      <circle cx={100} cy={100} r={70} fill="none" stroke={accent} strokeWidth={2} opacity={0.85} />
+      {/* 12-o'clock marker */}
+      <rect x={96.5} y={22} width={7} height={10} rx={2} fill={accent} />
 
-      {/* Inner rim - subtle shadow */}
-      <circle
-        cx={100}
-        cy={100}
-        r={66}
-        fill="none"
-        stroke="#a0a5b0"
-        strokeWidth={2}
-        opacity={0.5}
-      />
-
-      {/* Three spokes - smooth, clean */}
-      {[
-        { a: 0 },
-        { a: 120 },
-        { a: 240 },
-      ].map(({ a }) => {
-        const rad = (a * Math.PI) / 180;
-        const x1 = 100 + Math.cos(rad) * 22;
-        const y1 = 100 + Math.sin(rad) * 22;
-        const x2 = 100 + Math.cos(rad) * 66;
-        const y2 = 100 + Math.sin(rad) * 66;
+      {/* Shaped spokes */}
+      {spokes.map((deg) => {
+        const [tx, ty] = polar(100, 100, 62, deg);
+        const [hx, hy] = polar(100, 100, 30, deg);
+        const [lx, ly] = polar(100, 100, 47, deg - 7);
+        const [rx, ry] = polar(100, 100, 47, deg + 7);
         return (
-          <line
-            key={a}
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke="#d0d4da"
-            strokeWidth={3.5}
-            opacity={0.85}
+          <path
+            key={deg}
+            d={`M ${lx} ${ly} L ${tx} ${ty} L ${rx} ${ry} L ${hx} ${hy} Z`}
+            fill={`url(#${gid("spoke")})`}
+            stroke="#101216"
+            strokeWidth={1}
           />
         );
       })}
 
-      {/* Center hub - clean, subtle */}
-      <circle
-        cx={100}
-        cy={100}
-        r={20}
-        fill="#e8ebef"
-        opacity={0.95}
-      />
-      <circle
-        cx={100}
-        cy={100}
-        r={14}
-        fill="#1e3a8a"
-        opacity={0.9}
-      />
-      <circle
-        cx={100}
-        cy={100}
-        r={8}
-        fill="#e8ebef"
-        opacity={0.85}
-      />
+      {/* Hub */}
+      <circle cx={100} cy={100} r={30} fill={`url(#${gid("hub")})`} stroke="#0c0e11" strokeWidth={2} />
+      <circle cx={100} cy={100} r={30} fill="none" stroke={accent} strokeWidth={1.5} opacity={0.6} />
 
-      {/* Hub top marker - subtle gold accent */}
-      <circle
-        cx={100}
-        cy={82}
-        r={3.5}
-        fill="#c9a23a"
-        opacity={0.7}
-      />
+      {variant === "eu" ? (
+        /* 12-star ring */
+        <g fill="#dbeafe">
+          {Array.from({ length: 12 }, (_, i) => {
+            const [sx, sy] = polar(100, 100, 15, i * 30);
+            return <circle key={i} cx={sx} cy={sy} r={2.1} />;
+          })}
+          <circle cx={100} cy={100} r={4.5} fill={accent} />
+        </g>
+      ) : (
+        /* Tricolor shield */
+        <g>
+          <clipPath id={gid("shield")}>
+            <path d="M 88 88 h 24 v 12 c 0 8 -6 13 -12 15 c -6 -2 -12 -7 -12 -15 Z" />
+          </clipPath>
+          <g clipPath={`url(#${gid("shield")})`}>
+            <rect x={88} y={88} width={8} height={28} fill="#1e40af" />
+            <rect x={96} y={88} width={8} height={28} fill="#facc15" />
+            <rect x={104} y={88} width={8} height={28} fill="#dc2626" />
+          </g>
+          <path
+            d="M 88 88 h 24 v 12 c 0 8 -6 13 -12 15 c -6 -2 -12 -7 -12 -15 Z"
+            fill="none"
+            stroke="#0c0e11"
+            strokeWidth={1.5}
+          />
+        </g>
+      )}
     </svg>
   );
 }

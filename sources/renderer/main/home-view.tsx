@@ -88,6 +88,7 @@ export function HomeView() {
                 key={pack.country}
                 name={car.name}
                 flag={car.flag}
+                variant={pack.country === "ro" ? "ro" : "eu"}
                 color={car.color}
                 accent={car.accent}
                 questions={pack.questionCount}

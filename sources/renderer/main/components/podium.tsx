@@ -3,6 +3,7 @@ import { WheelSvg } from "./wheel-svg.js";
 interface PodiumProps {
   name: string;
   flag: string;
+  variant: "eu" | "ro";
   color: string;
   accent: string;
   questions: number;
@@ -18,6 +19,7 @@ interface PodiumProps {
 export function Podium({
   name,
   flag,
+  variant,
   questions,
   chapters,
   lawValidThrough,
@@ -40,7 +42,7 @@ export function Podium({
       >
         {/* Wheel SVG */}
         <div className="mb-3 flex justify-center">
-          <WheelSvg className="h-20 w-44 drop-shadow-xl" />
+          <WheelSvg className="h-20 w-44 drop-shadow-xl" variant={variant} />
         </div>
 
         {/* Name plate */}
