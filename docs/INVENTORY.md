@@ -53,5 +53,8 @@ re-shot/re-illustrated. Nothing bitmap-copied into the app.
 
 ## Local artifacts (NOT in repo)
 
-- `/tmp/dqdata/abc_ro.sqlite` — full SDF export, working copy only.
-- `/tmp/abc-msi/`, `/tmp/abc-cd2/` — raw extractions.
+- `vendor-msi/` (local Glaze project dir, never committed): `ABC-Auto-CategoriaB.Setup.msi`
+  (vendor archive), `abc_ro.sqlite` (full MSI SDF export: 2,340 questions),
+  `abc_cd.sqlite` (CD SDF export: 1,447 questions + fines), `msi-images/`
+  (613 extracted images). Replaces the old `/tmp/dqdata/` + `/tmp/abc-msi/`
+  working copies — do not rely on `/tmp`, it is wiped on reboot.
