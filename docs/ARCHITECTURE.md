@@ -9,6 +9,10 @@
 - **Quiz engine**: single/multi-select, per-exam-format drivers
   (`questionCount`, `timeLimitSec`, `passMinCorrect`, `maxWrong`), seeded
   shuffle, review mode with article-cited explanations.
+- **Media channel**: `packs:media` IPC serves `<pack>/media/<file>` as a
+  data: URL (SVG/PNG/JPG allowlist, path-traversal guard, null on miss).
+  The renderer `QuestionMedia` component renders nothing on null — a
+  missing illustration never surfaces as a broken-image icon.
 - **Save**: streak/XP/hearts/mastery in `app.getPath("userData")`, never repo.
 
 ## Rendering tiers (GPU decision)
