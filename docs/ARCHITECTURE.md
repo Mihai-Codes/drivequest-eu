@@ -13,6 +13,15 @@
   data: URL (SVG/PNG/JPG allowlist, path-traversal guard, null on miss).
   The renderer `QuestionMedia` component renders nothing on null — a
   missing illustration never surfaces as a broken-image icon.
+- **App sources** live in `sources/` (Glaze project layout; the macOS app
+  itself is ad-hoc-signed, needs a Developer ID cert to survive rebuild).
+  `sources/public/packs` is a symlink to `content/packs` — one source of
+  truth, no pack duplication. `scripts/cd/` holds the CD extraction
+  toolchain (operates on the local proprietary `cd-extract/`, never
+  committed). Sync live → repo with:
+  `rsync -av --delete --exclude=node_modules --exclude=.build
+  <Glaze-project>/sources/ sources/`, then commit. Gates before sync:
+  `sh ./glaze-node.sh type-check` → `lint` → `build`.
 - **Save**: streak/XP/hearts/mastery in `app.getPath("userData")`, never repo.
 
 ## Rendering tiers (GPU decision)

@@ -12,3 +12,9 @@
 /dqdata/
 .DS_Store
 __pycache__/
+
+# App sources (live in sources/, Glaze-managed project layout)
+/node_modules/
+sources/node_modules/
+sources/.build/
+**/__pycache__/
