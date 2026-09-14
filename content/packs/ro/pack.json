@@ -563,7 +563,8 @@
       ],
       "difficulty": 2,
       "explanation": {
-        "en": "Overtaking is banned on pedestrian crossings, at level crossings, in unsigned intersections and where visibility is poor."
+        "en": "Overtaking is banned on pedestrian crossings, at level crossings, in unsigned intersections and where visibility is poor.",
+        "ro": "Depasirea este interzisa pe trecerea pentru pietoni, la trecerea la nivel cu calea ferata, in intersectiile nedirijate si in locurile cu vizibilitate redusa."
       },
       "id": "ro-depasire-0001",
       "media": null,
@@ -593,7 +594,8 @@
       ],
       "difficulty": 1,
       "explanation": {
-        "en": "Stopping (even briefly) is banned on marked pedestrian crossings, in intersections, on bridges and in tunnels."
+        "en": "Stopping (even briefly) is banned on marked pedestrian crossings, in intersections, on bridges and in tunnels.",
+        "ro": "Oprirea (chiar si de scurta durata) este interzisa pe trecerea pentru pietoni, in intersectii, pe poduri si in tuneluri."
       },
       "id": "ro-oprire-0001",
       "media": null,

@@ -47,6 +47,9 @@ def check_pack(path: Path) -> None:
         for lang in langs:
             if lang not in opts:
                 err(name, f"{qid}: options missing language {lang}")
+        for lang in langs:
+            if lang not in q.get("explanation", {}):
+                err(name, f"{qid}: explanation missing language {lang}")
         first_lang_opts = set(next(iter(opts.values()), {}).keys())
         for c in q.get("correct", []):
             if c not in first_lang_opts:
