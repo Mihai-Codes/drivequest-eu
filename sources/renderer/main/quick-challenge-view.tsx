@@ -177,7 +177,7 @@ export function QuickChallengeView() {
 
   return (
     <div className="h-full overflow-y-auto" style={{ backgroundColor: "#fbfaf7" }}>
-      <div className="mx-auto max-w-3xl px-6 pb-16 pt-24">
+      <div className="mx-auto max-w-3xl px-6 pb-16 pt-32">
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="rounded-full px-3 py-1 text-xs font-bold" style={{ backgroundColor: EU_GOLD, color: INK }}>

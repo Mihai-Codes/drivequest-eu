@@ -8,11 +8,11 @@ import { useNavigate, useParams, useRouterState } from "@tanstack/react-router";
 
 import { useProgress } from "../lib/use-progress.js";
 import { levelFor, nextHeartInMs, MAX_HEARTS } from "../lib/progress.js";
-import { Heart, EU_BLUE, EU_GOLD, INK } from "../lib/ui.js";
+import { Heart, EU_BLUE, EU_GOLD, INK, AMBER } from "../lib/ui.js";
 
 const PACKS = [
   { country: "eu", label: "EU", accent: EU_BLUE },
-  { country: "ro", label: "RO", accent: "#b45309" },
+  { country: "ro", label: "RO", accent: AMBER },
 ];
 
 function fmtCountdown(ms: number): string {
@@ -52,7 +52,7 @@ export function Hud() {
   const showQuick = pathname.startsWith("/map");
 
   return (
-    <header className="pointer-events-none fixed left-0 right-0 top-13 z-40 flex justify-center px-4">
+    <header className="pointer-events-none fixed left-0 right-0 top-16 z-40 flex justify-center px-4">
       <div className="pointer-events-auto flex w-full max-w-3xl items-center gap-4 rounded-2xl border border-white/60 bg-white/60 px-4 py-2 shadow-[0_8px_30px_rgba(45,45,45,0.10)] backdrop-blur-xl">
         {/* Driver level */}
         <div className="flex items-center gap-2" title={`${progress.state.xp} XP total`}>

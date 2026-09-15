@@ -3,10 +3,11 @@ import { useNavigate } from "@tanstack/react-router";
 import { Podium } from "./components/podium.js";
 import { invoke } from "./lib/invoke.js";
 import type { PackSummary } from "./lib/packs.js";
+import { EU_BLUE, AMBER } from "./lib/ui.js";
 
 const SHOWROOM: Record<string, { name: string; flag: string; color: string; accent: string }> = {
-  eu: { name: "European Core", flag: "🇪🇺", color: "#1e3a8a", accent: "#3b82f6" },
-  ro: { name: "Romania", flag: "🇷🇴", color: "#92400e", accent: "#f59e0b" },
+  eu: { name: "European Core", flag: "🇪🇺", color: EU_BLUE, accent: EU_BLUE },
+  ro: { name: "Romania", flag: "🇷🇴", color: AMBER, accent: AMBER },
 };
 
 export function HomeView() {

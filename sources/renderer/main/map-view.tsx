@@ -95,7 +95,7 @@ export function MapView() {
 
   return (
     <div className="h-full overflow-y-auto" style={{ backgroundColor: "#fbfaf7" }}>
-      <div className="mx-auto max-w-3xl px-6 pb-16 pt-20">
+      <div className="mx-auto max-w-3xl px-6 pb-16 pt-32">
         {/* Header */}
         <header className="mb-8">
           <GhostButton onClick={() => navigate({ to: "/" })} className="mb-4">

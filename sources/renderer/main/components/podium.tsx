@@ -20,6 +20,7 @@ export function Podium({
   name,
   flag,
   variant,
+  accent,
   questions,
   chapters,
   lawValidThrough,
@@ -94,10 +95,11 @@ export function Podium({
         )}
       </div>
 
-      {/* Drive button */}
+      {/* Drive button — carries the pack's brand accent */}
       <button
         onClick={onDrive}
-        className="mt-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-8 py-3 text-sm font-bold tracking-wide text-white shadow-lg shadow-emerald-900/40 transition-all hover:from-emerald-500 hover:to-emerald-400 hover:shadow-emerald-800/50 active:scale-95"
+        className="mt-4 rounded-xl px-8 py-3 text-sm font-bold tracking-wide text-white shadow-lg transition-all motion-safe:hover:opacity-90 motion-safe:hover:shadow-xl active:scale-95"
+        style={{ backgroundColor: accent, boxShadow: `0 10px 24px ${accent}55` }}
       >
         DRIVE
       </button>
