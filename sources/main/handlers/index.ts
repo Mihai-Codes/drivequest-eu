@@ -8,6 +8,7 @@ import { getSettingsWindow, openSettingsWindow } from "../windows/settings-windo
 import { getImportCookiesWindow } from "../windows/import-cookies-window.js";
 import { registerGrokHandlers } from "./grok.js";
 import { registerPackHandlers } from "./packs.js";
+import { registerProgressHandlers } from "./progress.js";
 
 import { ipcMain, logger } from "@glaze/core/backend";
 
@@ -32,6 +33,9 @@ export function registerHandlers(): void {
 
   // DriveQuest country packs
   registerPackHandlers();
+
+  // DriveQuest learner progress (XP, streak, hearts, mastery)
+  registerProgressHandlers();
 
   logger.info("handlers", "✓ IPC handlers registered");
 }
