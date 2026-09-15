@@ -131,7 +131,7 @@ export function MapView() {
                 <GlassCard
                   className={`relative flex items-center gap-4 p-4 transition-transform ${
                     locked ? "opacity-60" : "motion-safe:hover:-translate-y-0.5"
-                  }`}
+                  } ${mastered ? "dq-mastered-card" : ""}`}
                 >
                   {/* node badge */}
                   <div

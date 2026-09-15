@@ -8,3 +8,27 @@
 @source "./**/*.{ts,tsx}";
 @source not "./preload.ts";
 @source not "./dev/**/*";
+
+/* Mastery payoff: a mastered chapter "lights up" (CloudQuest's district-glow,
+   adapted to 2D). Gold halo animates in once, then settles to a steady glow.
+   Disabled under the OS reduced-motion preference. */
+@keyframes dq-mastery-glow {
+  from {
+    box-shadow: 0 0 0 0 rgba(255, 204, 0, 0), 0 8px 30px rgba(45, 45, 45, 0.1);
+  }
+  to {
+    box-shadow: 0 0 0 6px rgba(255, 204, 0, 0.35), 0 8px 30px rgba(45, 45, 45, 0.1);
+  }
+}
+
+.dq-mastered-card {
+  box-shadow:
+    0 0 0 3px rgba(255, 204, 0, 0.28),
+    0 8px 30px rgba(45, 45, 45, 0.1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dq-mastered-card {
+    animation: dq-mastery-glow 0.9s ease-out both;
+  }
+}
