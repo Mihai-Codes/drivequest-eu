@@ -25,6 +25,7 @@ import {
 } from "./lib/quiz.js";
 import type { Answer } from "./lib/quiz.js";
 import { chapterKey, starsFor, XP } from "./lib/progress.js";
+import { scenarioFor, pickScenarioText } from "./lib/scenarios.js";
 import { GlassCard, GhostButton, PrimaryButton, Heart, accentFor } from "./lib/ui.js";
 import { QuestionMedia } from "./components/question-media.js";
 
@@ -123,6 +124,8 @@ export function ChapterView() {
           <LearnCard
             country={country}
             title={title}
+            chapterId={chapterId}
+            lang={lang}
             accent={accent.accent}
             onDone={() => setStage("practice")}
           />
@@ -170,31 +173,39 @@ export function ChapterView() {
 function LearnCard({
   country,
   title,
+  chapterId,
+  lang,
   accent,
   onDone,
 }: {
   country: string;
   title: string;
+  chapterId: string;
+  lang: string;
   accent: string;
   onDone: () => void;
 }) {
+  const scenario = scenarioFor(chapterId);
   return (
     <GlassCard className="p-8">
       <p className="text-xs font-semibold uppercase tracking-widest text-[#2d2d2d]/50">
-        Quick theory
+        The scenario
       </p>
       <h2 className="mt-2 text-xl font-bold text-[#2d2d2d]">{title}</h2>
+      <p className="mt-4 text-lg leading-relaxed text-[#2d2d2d]" style={{ fontStyle: "italic" }}>
+        {pickScenarioText(scenario.hook, lang)}
+      </p>
       <p className="mt-4 leading-relaxed text-[#2d2d2d]/80">
-        Read the key rules for this topic, then test yourself. There is no timer
-        here. Take a moment to understand the ideas before you answer questions
-        on them. Each answer later cites the exact article of law it comes from.
+        {pickScenarioText(scenario.goal, lang)} There is no timer here. Read the
+        rules, then prove it in practice. Every answer later cites the exact
+        article of law it comes from.
       </p>
       <div className="mt-6 flex items-center gap-3">
         <PrimaryButton accent={accent} onClick={onDone}>
           Start practice
         </PrimaryButton>
       </div>
-      <p className="mt-4 text-xs text-[#2d2d2d]/40">Pack {country.toUpperCase()} · theory card</p>
+      <p className="mt-4 text-xs text-[#2d2d2d]/40">Pack {country.toUpperCase()} · learn the why, then the rule</p>
     </GlassCard>
   );
 }
