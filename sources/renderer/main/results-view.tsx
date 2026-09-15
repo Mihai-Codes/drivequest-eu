@@ -10,6 +10,7 @@ import { useNavigate, useSearch } from "@tanstack/react-router";
 
 import { usePacks, pickLang, fetchQuestions } from "./lib/packs.js";
 import type { Question } from "./lib/packs.js";
+import { sourceFor, openSourceLink } from "./lib/articles.js";
 import { GlassCard, GhostButton, PrimaryButton, Stars, accentFor } from "./lib/ui.js";
 import { QuestionMedia } from "./components/question-media.js";
 
@@ -136,7 +137,7 @@ export function ResultsView() {
                   />
                   <h3 className="mt-1 font-semibold text-[#2d2d2d]">{pickLang(q.stem, lang)}</h3>
                   <p className="mt-2 text-sm text-[#2d2d2d]/80">{pickLang(q.explanation, lang)}</p>
-                  <p className="mt-2 text-xs text-[#2d2d2d]/50">Source: {q.article}</p>
+                  <ArticleSource country={country} article={q.article} />
                 </GlassCard>
               </li>
             ))}
@@ -144,5 +145,29 @@ export function ResultsView() {
         )}
       </div>
     </div>
+  );
+}
+
+/** Law citation with a direct link to the authoritative public source. */
+function ArticleSource({ country, article }: { country: string; article: string }) {
+  const src = sourceFor(country);
+  return (
+    <p className="mt-2 text-xs text-[#2d2d2d]/50">
+      Source: {article}
+      {src ? (
+        <>
+          {" · "}
+          <button
+            type="button"
+            onClick={() => void openSourceLink(src.url)}
+            className="font-medium underline decoration-dotted underline-offset-2 motion-safe:hover:text-[#003399]"
+            style={{ color: "#003399" }}
+            title={`Open ${src.label} in your browser`}
+          >
+            Read the law ↗
+          </button>
+        </>
+      ) : null}
+    </p>
   );
 }
