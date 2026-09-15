@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { Podium } from "./components/podium.js";
 
 type PackSummary = {
@@ -26,6 +27,7 @@ export function HomeView() {
   const [packs, setPacks] = useState<PackSummary[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [open, setOpen] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     invoke("packs:list")
@@ -99,10 +101,7 @@ export function HomeView() {
                 expanded={isOpen}
                 onToggle={() => setOpen(isOpen ? null : pack.country)}
                 onDrive={() => {
-                  invoke("packs:questions", pack.country).then((q) => {
-                    // TODO: route to exam view
-                    console.log("Drive:", pack.country, "questions:", Array.isArray(q) ? q.length : 0);
-                  });
+                  navigate({ to: "/map/$country", params: { country: pack.country } });
                 }}
               />
             );

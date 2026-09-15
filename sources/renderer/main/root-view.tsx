@@ -1,7 +1,8 @@
-import { Outlet } from "@tanstack/react-router";
+import { Outlet, useRouterState } from "@tanstack/react-router";
 import * as React from "react";
 import { SplitView, Status } from "@glaze/core/components";
 import { useTheme, useConnection, useEnvironment } from "@glaze/core/hooks";
+import { Hud } from "./components/hud.js";
 
 export function RootView() {
   useTheme();
@@ -18,10 +19,15 @@ export function RootView() {
     };
   }, []);
 
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // The showroom keeps its own dark hero; the HUD appears on the exam screens.
+  const showHud = pathname !== "/";
+
   return (
     <div className="h-full relative [&:not(:has([data-toolbar]))_.drag-region]:z-50">
       {/* Draggable top bar - fallback for when no toolbar is present */}
       <div className="drag-region fixed top-0 left-0 right-0 h-13" />
+      {showHud ? <Hud /> : null}
       <SplitView className="h-full">
         <Outlet />
       </SplitView>
