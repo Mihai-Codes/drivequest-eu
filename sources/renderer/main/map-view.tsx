@@ -189,6 +189,11 @@ export function MapView() {
             );
           })}
         </ol>
+
+        {/* Legislation freshness */}
+        <p className="mt-10 text-center text-xs text-[#2d2d2d]/40">
+          Legislation current as of {pack.lawValidThrough} · Unofficial study aid, always confirm with the law
+        </p>
       </div>
     </div>
   );

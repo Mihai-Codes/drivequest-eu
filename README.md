@@ -45,6 +45,13 @@ Every pack carries `lawValidThrough` + source links. CI fails when a pack is
 stale (>12 months). In-app "legislation current as of" label. Yearly review
 workflow in `docs/CONTENT-PIPELINE.md`.
 
+**Scheduled review — Q4 2026:** Vienna Convention amendments enter into force
+**12 November 2026** (new signs incl. G-25.0, updated example images). Review
+the `eu` pack against the amended text and bump `lawValidThrough` then.
+**RO pack:** before any public launch, do a terminology pass against the
+current DGPCI exam simulator (dgpci.mai.gov.ro/dlexam) — the CD-derived topic
+weights are a couple of years old and DRPCIV phrasing drifts.
+
 ## Disclaimer
 
 Unofficial study aid. Not affiliated with DGPCI/DRPCIV, TÜV/DEKRA, or any
