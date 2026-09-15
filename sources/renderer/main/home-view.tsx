@@ -1,22 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Podium } from "./components/podium.js";
-
-type PackSummary = {
-  country: string;
-  languages: string[];
-  packVersion: string;
-  lawValidThrough: string;
-  chapters: { id: string; title: Record<string, string> }[];
-  questionCount: number;
-  fineCount: number;
-  perChapter: Record<string, number>;
-  examFormat?: { passMinCorrect: number; questionCount: number; timeLimitSec: number };
-};
-
-const invoke = (channel: string, ...args: unknown[]) =>
-  (window as unknown as { glazeAPI: { glaze: { ipc: { invoke: (c: string, ...a: unknown[]) => Promise<unknown> } } } })
-    .glazeAPI.glaze.ipc.invoke(channel, ...args);
+import { invoke } from "./lib/invoke.js";
+import type { PackSummary } from "./lib/packs.js";
 
 const SHOWROOM: Record<string, { name: string; flag: string; color: string; accent: string }> = {
   eu: { name: "European Core", flag: "🇪🇺", color: "#1e3a8a", accent: "#3b82f6" },
@@ -30,8 +16,8 @@ export function HomeView() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    invoke("packs:list")
-      .then((data) => setPacks(data as PackSummary[]))
+    invoke<PackSummary[]>("packs:list")
+      .then((data) => setPacks(data))
       .catch(() => setError("Could not load the study packs."));
   }, []);
 
