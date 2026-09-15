@@ -5,6 +5,10 @@ import {
   createRouter,
 } from "@tanstack/react-router";
 import { HomeView } from "./home-view";
+import { MapView } from "./map-view";
+import { ChapterView } from "./chapter-view";
+import { ResultsView } from "./results-view";
+import { QuickChallengeView } from "./quick-challenge-view";
 import { RootView } from "./root-view";
 import { QueryClient } from "@tanstack/react-query";
 import { ErrorBoundaryView } from "@glaze/core/components";
@@ -33,7 +37,43 @@ const homeRoute = createRoute({
   },
 });
 
-const routeTree = rootRoute.addChildren([homeRoute]);
+const mapRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/map/$country",
+  component: MapView,
+  staticData: {
+    title: "Chapter map",
+  },
+});
+
+const chapterRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/chapter/$country/$chapterId",
+  component: ChapterView,
+  staticData: {
+    title: "Chapter",
+  },
+});
+
+const resultsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/results",
+  component: ResultsView,
+  staticData: {
+    title: "Results",
+  },
+});
+
+const quickRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/quick/$country",
+  component: QuickChallengeView,
+  staticData: {
+    title: "Quick Challenge",
+  },
+});
+
+const routeTree = rootRoute.addChildren([homeRoute, mapRoute, chapterRoute, resultsRoute, quickRoute]);
 
 const queryClient = new QueryClient();
 
