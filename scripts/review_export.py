@@ -11,6 +11,10 @@ One row per translatable string (stem, each option, explanation) rather than
 per question: a reviewer ticks wording, not whole items, and per-string rows
 mean a partial pass is still mergeable.
 
+Rows are ordered so the hardest work comes first - see PRIORITY. Ordering is
+also written into the CSV as a column, because a reviewer sorting in Excel will
+otherwise lose the sequence and the priority is then invisible.
+
 review.csv is generated - never hand-edit it; regenerate after pack changes:
   python3 scripts/review_export.py                 # every pack
   python3 scripts/review_export.py --country ro    # one pack
@@ -28,6 +32,24 @@ DEFAULT_PACK_ROOT = Path(__file__).resolve().parent.parent / "content" / "packs"
 # Reviewer fills these two; everything before them is read-only context.
 VERDICT_COLS = ["verdict(ok|fix|drop)", "corrected_en"]
 
+# Which question needs the most attention. A pair the content pipeline flagged
+# as low-fidelity can be outright wrong about the law, so it precedes ordinary
+# machine-translated wording, which precedes already-signed-off content.
+PRIORITY = {
+    "low-fidelity": 1,
+    "machine-translated": 2,
+    "not-flagged": 3,
+}
+
+
+def priority_of(question: dict) -> str:
+    tag = question.get("review") or ""
+    if "low-fidelity" in tag:
+        return "low-fidelity"
+    if tag:
+        return "machine-translated"
+    return "not-flagged"
+
 
 def rows_for_pack(pack: dict) -> list[dict]:
     titles = {c["id"]: c.get("title", {}).get("en", c["id"]) for c in pack.get("chapters", [])}
@@ -43,6 +65,7 @@ def rows_for_pack(pack: dict) -> list[dict]:
             out.append(
                 {
                     "id": qid,
+                    "priority": priority_of(q),
                     "chapter": titles.get(chapter, chapter),
                     "field": field if not key else f"{field}.{key}",
                     "ro": ro,
@@ -76,6 +99,8 @@ def main() -> int:
         return 1
     pack = json.loads(pack_path.read_text())
     rows = rows_for_pack(pack)
+    # Stable sort: hardest first, and questions keep their pack order inside a band.
+    rows.sort(key=lambda r: PRIORITY.get(r["priority"], len(PRIORITY)))
     out = args.out or pack_path.parent / "review.csv"
     with out.open("w", newline="", encoding="utf-8-sig") as handle:  # BOM: Excel opens RO diacritics correctly
         writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
@@ -83,7 +108,9 @@ def main() -> int:
         writer.writerows(rows)
 
     tagged = sum(1 for q in pack.get("questions", []) if q.get("review"))
+    low = sum(1 for r in rows if r["priority"] == "low-fidelity")
     print(f"{args.country}: {len(pack.get('questions', []))} questions ({tagged} flagged for review) -> {len(rows)} rows")
+    print(f"    low-fidelity rows first: {low}")
     print(f"wrote {out}")
     return 0
 
