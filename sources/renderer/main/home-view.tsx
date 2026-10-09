@@ -1,54 +1,56 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Podium } from "./components/podium.js";
+import { EuroPlate } from "./components/euro-plate.js";
 import { invoke } from "./lib/invoke.js";
 import type { PackSummary } from "./lib/packs.js";
-import { EU_BLUE, AMBER } from "./lib/ui.js";
+import { pickLang } from "./lib/packs.js";
+import { AMBER, PrimaryButton } from "./lib/ui.js";
+import { firstUnmastered, resumeStep } from "./lib/progress.js";
+import { useProgress } from "./lib/use-progress.js";
 import garageHero from "./assets/garage-hero.webp";
 
 /**
- * The garage — the app's landing screen. A lived-in European workshop at
- * blue hour: the hero photo sets the scene, pack cards hang like work
- * tickets in the bays, and DRIVE rolls the car out. Design language per
- * docs/GAME-DESIGN.md (Rockstar-grade world detail, GT7-style licence
- * framing, all European).
+ * The garage — the app's landing screen. One composed scene: a European
+ * workshop at blue hour, the brand plate as the headline, and the two
+ * curricula anchored below with a progress-aware "continue" action.
+ * Design rules per docs/GAME-DESIGN.md §Design references.
  */
-const BAYS: Record<
-  string,
-  { name: string; flag: string; color: string; accent: string; bay: string }
-> = {
-  eu: { name: "European Core", flag: "🇪🇺", color: EU_BLUE, accent: EU_BLUE, bay: "01" },
-  ro: { name: "Romania", flag: "🇷🇴", color: AMBER, accent: AMBER, bay: "02" },
+const PACKS: Record<string, { name: string; code: string; role: string; accent: string }> = {
+  eu: {
+    name: "European Core",
+    code: "EU",
+    role: "Foundation · Vienna Convention",
+    accent: "#4f7dff",
+  },
+  ro: { name: "Romania", code: "RO", role: "National · DRPCIV-aligned", accent: AMBER },
 };
-
-/** Euro-plate-styled bay marker (DIN Condensed ships with macOS). */
-function BayPlate({ label, accent }: { label: string; accent: string }) {
-  return (
-    <span
-      className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-black/45 px-3 py-1 text-sm font-bold tracking-[0.18em] text-white/90 shadow-md backdrop-blur-sm"
-      style={{ fontFamily: '"DIN Condensed", "DIN Alternate", system-ui' }}
-    >
-      <span
-        className="inline-block h-3.5 w-1.5 rounded-[2px]"
-        style={{ backgroundColor: accent }}
-        aria-hidden
-      />
-      {label}
-    </span>
-  );
-}
+const PACK_ORDER = ["eu", "ro"] as const;
 
 export function HomeView() {
   const [packs, setPacks] = useState<PackSummary[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [open, setOpen] = useState<string | null>(null);
   const navigate = useNavigate();
+  const progress = useProgress();
 
   useEffect(() => {
     invoke<PackSummary[]>("packs:list")
       .then((data) => setPacks(data))
       .catch(() => setError("Could not load the study packs."));
   }, []);
+
+  // Progress-aware resume: the pack with the learner's own progress leads.
+  const resume = useMemo(() => {
+    if (!packs) return null;
+    return resumeStep(
+      [...PACK_ORDER],
+      Object.fromEntries(packs.map((p) => [p.country, p.chapters])),
+      progress.state.chapters,
+    );
+  }, [packs, progress.state.chapters]);
+
+  const hasProgress = progress.state.xp > 0 || progress.state.streakDays > 0;
 
   if (error) {
     return (
@@ -89,6 +91,19 @@ export function HomeView() {
     );
   }
 
+  const packsById = Object.fromEntries(packs.map((p) => [p.country, p]));
+  const active =
+    resume != null && packsById[resume.country] != null
+      ? packsById[resume.country]
+      : (packsById.eu ?? packs[0]);
+  const activeAccent = PACKS[active.country]?.accent ?? "#9ca3af";
+  const nextTitle = resume
+    ? pickLang(
+        packsById[resume.country]?.chapters.find((c) => c.id === resume.chapterId)?.title,
+        "en",
+      )
+    : "";
+
   return (
     <div className="relative h-full overflow-y-auto bg-[#0b0d13]">
       {/* Garage hero backdrop */}
@@ -99,75 +114,115 @@ export function HomeView() {
           className="absolute inset-0 h-full w-full object-cover"
           draggable={false}
         />
-        {/* Scrims: calm the top for the title, ground the bottom for the cards */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b0d13]/85 via-[#0b0d13]/35 to-[#0b0d13]/92" />
-        <div className="absolute inset-0 bg-[radial-gradient(70%_50%_at_50%_100%,rgba(0,0,0,0.55),rgba(0,0,0,0)_70%)]" />
+        {/* Local scrims: protect the headline zone and ground the bays, keep
+            the scene vivid between them (no full-frame dim). */}
+        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#0b0d13]/88 via-[#0b0d13]/45 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-[#0b0d13]/95 via-[#0b0d13]/55 to-transparent" />
+        <div className="absolute inset-0 shadow-[inset_0_0_140px_rgba(0,0,0,0.65)]" />
       </div>
 
-      <div className="relative mx-auto max-w-5xl px-6 py-10">
-        {/* Header */}
-        <header className="mb-10 text-center">
-          <h1
-            className="text-4xl font-black uppercase tracking-[0.14em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]"
-            style={{ fontFamily: '"DIN Condensed", "DIN Alternate", system-ui' }}
-          >
-            DriveQuest EU
-          </h1>
-          <p className="mt-2 text-sm text-white/65 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
-            Pick your vehicle. Learn the road rules. Pass the exam.
+      <div className="relative mx-auto flex min-h-full max-w-5xl flex-col px-6 pb-8 pt-9">
+        {/* Headline: the brand plate carries the title */}
+        <header className="flex flex-col items-center">
+          <EuroPlate size="lg" code="EU" text="DriveQuest" ariaLabel="DriveQuest EU" />
+          <p className="mt-3 text-sm font-medium text-white/70">
+            One European standard. Your country&rsquo;s road rules.
           </p>
         </header>
 
-        {/* Garage bays — one per country pack */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          {packs.map((pack) => {
-            const bay = BAYS[pack.country] ?? {
-              name: pack.country,
-              flag: "🚗",
-              color: "#374151",
-              accent: "#9ca3af",
-              bay: "–",
-            };
-            const exam = pack.examFormat ?? {
-              passMinCorrect: 0,
-              questionCount: pack.questionCount,
-              timeLimitSec: 1800,
-            };
-            const isOpen = open === pack.country;
-            return (
-              <div key={pack.country} className="flex flex-col items-center">
-                <BayPlate
-                  label={`BAY ${bay.bay} · ${bay.name.toUpperCase()}`}
-                  accent={bay.accent}
-                />
-                <div className="mt-2">
-                  <Podium
-                    name={bay.name}
-                    flag={bay.flag}
-                    variant={pack.country === "ro" ? "ro" : "eu"}
-                    color={bay.color}
-                    accent={bay.accent}
-                    questions={pack.questionCount}
-                    chapters={pack.chapters.length}
-                    lawValidThrough={pack.lawValidThrough}
-                    passMin={exam.passMinCorrect}
-                    timeLimitMin={Math.round(exam.timeLimitSec / 60)}
-                    expanded={isOpen}
-                    onToggle={() => setOpen(isOpen ? null : pack.country)}
-                    onDrive={() => {
-                      navigate({ to: "/map/$country", params: { country: pack.country } });
-                    }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {/* The single obvious way in — continues exactly where they left off */}
+        {resume && active ? (
+          <div className="mt-7 flex flex-col items-center">
+            <PrimaryButton
+              accent={activeAccent}
+              className="px-8 py-3 text-sm"
+              onClick={() => {
+                if (resume.chapterId) {
+                  void navigate({
+                    to: "/chapter/$country/$chapterId",
+                    params: { country: resume.country, chapterId: resume.chapterId },
+                  });
+                } else {
+                  void navigate({ to: "/map/$country", params: { country: resume.country } });
+                }
+              }}
+            >
+              {hasProgress ? "Continue training" : "Start learning"}
+            </PrimaryButton>
+            <p className="mt-2 text-xs text-white/55">
+              {hasProgress ? "Next up" : "First stop"}:{" "}
+              <span className="font-semibold text-white/85">
+                {nextTitle || PACKS[active.country]?.name}
+              </span>
+              <span className="text-white/40">
+                {" "}
+                · {PACKS[active.country]?.name ?? active.country}
+              </span>
+            </p>
+          </div>
+        ) : null}
 
-        {/* Footer */}
-        <p className="mt-10 text-center text-xs text-white/25">
-          More countries coming soon · Rules current as of 2026-09
-        </p>
+        {/* Curricula: foundation first, national prep, reserved slot */}
+        <div className="mt-auto grid grid-cols-1 gap-5 pt-9 md:grid-cols-2 xl:grid-cols-3">
+          {packs
+            .slice()
+            .sort(
+              (a, b) =>
+                PACK_ORDER.indexOf(a.country as "eu") - PACK_ORDER.indexOf(b.country as "eu"),
+            )
+            .map((pack) => {
+              const meta = PACKS[pack.country] ?? {
+                name: pack.country,
+                code: pack.country.toUpperCase(),
+                role: "Curriculum",
+                accent: "#9ca3af",
+              };
+              const exam = pack.examFormat ?? {
+                passMinCorrect: 0,
+                questionCount: pack.questionCount,
+                timeLimitSec: 1800,
+              };
+              const isOpen = open === pack.country;
+              const step = firstUnmastered(pack.country, pack.chapters, progress.state.chapters);
+              return (
+                <Podium
+                  key={pack.country}
+                  code={meta.code}
+                  name={meta.name}
+                  role={meta.role}
+                  variant={pack.country === "ro" ? "ro" : "eu"}
+                  accent={meta.accent}
+                  questions={pack.questionCount}
+                  chapters={pack.chapters.length}
+                  lawValidThrough={pack.lawValidThrough}
+                  passMin={exam.passMinCorrect}
+                  timeLimitMin={Math.round(exam.timeLimitSec / 60)}
+                  expanded={isOpen}
+                  onToggle={() => setOpen(isOpen ? null : pack.country)}
+                  ctaLabel={step?.started ? "Continue" : "Start"}
+                  onDrive={() => {
+                    void navigate({
+                      to: step ? "/chapter/$country/$chapterId" : "/map/$country",
+                      params: step
+                        ? { country: step.country, chapterId: step.chapterId }
+                        : { country: pack.country },
+                    });
+                  }}
+                />
+              );
+            })}
+
+          {/* Reserved slot: the promise of more countries, inside the scene */}
+          <div className="flex h-full min-h-[280px] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-white/15 bg-black/20 p-5 text-center opacity-60">
+            <EuroPlate size="sm" code="EU" text="···" ariaLabel="Reserved for more countries" />
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/45">
+              Reserved bay
+            </p>
+            <p className="max-w-[180px] text-[11px] leading-snug text-white/35">
+              More European countries roll in here soon.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

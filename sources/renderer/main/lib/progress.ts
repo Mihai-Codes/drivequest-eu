@@ -184,6 +184,57 @@ export function effectiveStatus(
   return self.status;
 }
 
+// ---- Next step ---------------------------------------------------------------
+
+export type NextStep = {
+  country: string;
+  chapterId: string;
+  index: number;
+  started: boolean;
+};
+
+/**
+ * The learner's next step within one pack: the first chapter (in curriculum
+ * order) that is not yet mastered. Null when every chapter is mastered.
+ */
+export function firstUnmastered(
+  country: string,
+  chapters: ReadonlyArray<{ id: string }>,
+  saved: ProgressState["chapters"],
+): NextStep | null {
+  for (let index = 0; index < chapters.length; index++) {
+    const chapter = chapters[index];
+    if (!chapter) continue;
+    const prog = saved[chapterKey(country, chapter.id)];
+    if (!isMastered(prog)) {
+      return { country, chapterId: chapter.id, index, started: !!prog };
+    }
+  }
+  return null;
+}
+
+/**
+ * Where the learner should resume across packs: the pack with existing
+ * progress wins (their own journey), otherwise the foundation pack leads.
+ * `packOrder` is the packs' display order; null when everything is mastered.
+ */
+export function resumeStep(
+  packOrder: ReadonlyArray<string>,
+  packsById: Record<string, { id: string }[]>,
+  saved: ProgressState["chapters"],
+): NextStep | null {
+  const withProgress = packOrder.filter((c) =>
+    Object.keys(saved).some((k) => k.startsWith(`${c}/`)),
+  );
+  for (const country of [...withProgress, ...packOrder.filter((c) => !withProgress.includes(c))]) {
+    const chapters = packsById[country];
+    if (!chapters) continue;
+    const step = firstUnmastered(country, chapters, saved);
+    if (step) return step;
+  }
+  return null;
+}
+
 // ---- XP / level -------------------------------------------------------------
 
 /** Driver level from total XP. Gentle curve: 100 * level XP per level. */
