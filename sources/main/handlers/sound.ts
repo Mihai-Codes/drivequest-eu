@@ -12,9 +12,9 @@ import { app, ipcMain, logger } from "@glaze/core/backend";
 
 const FILE_NAME = "drivequest-sound-prefs.json";
 
-export type SoundPrefs = { sfx: boolean; music: boolean };
+export type SoundPrefs = { sfx: boolean; music: boolean; muted: boolean };
 
-const DEFAULTS: SoundPrefs = { sfx: true, music: true };
+const DEFAULTS: SoundPrefs = { sfx: true, music: true, muted: false };
 
 function prefsFile(): string {
   return path.join(app.getPath("userData"), FILE_NAME);
@@ -26,6 +26,7 @@ function readPrefs(): SoundPrefs {
     return {
       sfx: typeof raw.sfx === "boolean" ? raw.sfx : DEFAULTS.sfx,
       music: typeof raw.music === "boolean" ? raw.music : DEFAULTS.music,
+      muted: typeof raw.muted === "boolean" ? raw.muted : DEFAULTS.muted,
     };
   } catch {
     return { ...DEFAULTS };

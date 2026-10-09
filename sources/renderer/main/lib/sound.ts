@@ -19,12 +19,12 @@ import clickSecondaryUrl from "../assets/audio/sfx-secondary.m4a";
 import clickToggleUrl from "../assets/audio/sfx-toggle.m4a";
 import ambientUrl from "../assets/audio/garage-ambient.m4a";
 
-type Prefs = { sfx: boolean; music: boolean };
+type Prefs = { sfx: boolean; music: boolean; muted: boolean };
 type ClickKind = "primary" | "secondary" | "toggle";
 
 let ctx: AudioContext | null = null;
 let master: GainNode | null = null;
-let prefs: Prefs = { sfx: true, music: true };
+let prefs: Prefs = { sfx: true, music: true, muted: false };
 let unlocked = false;
 
 const CLICK_URLS: Record<ClickKind, string> = {
@@ -84,7 +84,7 @@ export function unlockAudio(): void {
     }
     ambientBuffer = (await decode(ambientUrl)) ?? null;
     // If the landing is already active when decoding finishes, start the bed.
-    if (ambientOn && prefs.music && !ambientSource) {
+    if (ambientOn && prefs.music && !prefs.muted && !ambientSource) {
       ambientSetActive(true);
     }
   })();
@@ -114,6 +114,24 @@ export function getPrefs(): Prefs {
   return { ...prefs };
 }
 
+/** Global mute: silences everything without touching the category prefs. */
+export async function toggleMuted(): Promise<boolean> {
+  prefs = { ...prefs, muted: !prefs.muted };
+  try {
+    prefs = await invoke<Prefs>("sound-prefs:set", { muted: prefs.muted });
+  } catch {
+    /* keep in-memory value */
+  }
+  if (ctx && master) {
+    master.gain.setTargetAtTime(prefs.muted ? 0 : 1, ctx.currentTime, 0.08);
+  }
+  return prefs.muted;
+}
+
+export function isMuted(): boolean {
+  return prefs.muted;
+}
+
 function applyMusicPref(): void {
   // Toggling music off mutes the bed in place; on resumes it only if the
   // garage is the active screen.
@@ -131,7 +149,7 @@ function applyMusicPref(): void {
 // ---- Click sounds ----------------------------------------------------------
 
 export function click(kind: ClickKind = "primary"): void {
-  if (!prefs.sfx) return;
+  if (!prefs.sfx || prefs.muted) return;
   const ac = ensureCtx();
   if (!ac || !master) return;
   const buf = clickBuffers.get(kind);
@@ -148,6 +166,7 @@ export function click(kind: ClickKind = "primary"): void {
 
 export function ambientSetActive(active: boolean): void {
   ambientOn = active;
+  if (active && prefs.muted) return;
   if (active) {
     if (ambientStopTimer) {
       clearTimeout(ambientStopTimer);

@@ -4,6 +4,7 @@ import { SplitView, Status } from "@glaze/core/components";
 import { useTheme, useConnection, useEnvironment } from "@glaze/core/hooks";
 import { Hud } from "./components/hud.js";
 import { ambientSetActive, unlockAudio } from "./lib/sound.js";
+import { SoundToggle } from "./components/sound-toggle.js";
 
 export function RootView() {
   useTheme();
@@ -45,6 +46,8 @@ export function RootView() {
     <div className="h-full relative [&:not(:has([data-toolbar]))_.drag-region]:z-50">
       {/* Draggable top bar - fallback for when no toolbar is present */}
       <div className="drag-region fixed top-0 left-0 right-0 h-13" />
+      {/* Global sound mute — every screen, top-right */}
+      <SoundToggle className="fixed right-4 top-3 z-50" />
       {showHud ? <Hud /> : null}
       <SplitView className="h-full">
         <Outlet />
