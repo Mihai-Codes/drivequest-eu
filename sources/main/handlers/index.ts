@@ -10,6 +10,7 @@ import { registerGrokHandlers } from "./grok.js";
 import { registerPackHandlers } from "./packs.js";
 import { registerProgressHandlers } from "./progress.js";
 import { registerLinkHandlers } from "./links.js";
+import { registerSoundHandlers } from "./sound.js";
 
 import { ipcMain, logger } from "@glaze/core/backend";
 
@@ -40,6 +41,9 @@ export function registerHandlers(): void {
 
   // DriveQuest external law-source links (allowlisted)
   registerLinkHandlers();
+
+  // DriveQuest sound preferences (UI sfx + garage ambient toggles)
+  registerSoundHandlers();
 
   logger.info("handlers", "✓ IPC handlers registered");
 }

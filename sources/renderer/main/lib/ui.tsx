@@ -15,6 +15,8 @@
  */
 import type { ReactNode, CSSProperties } from "react";
 
+import { click } from "./sound.js";
+
 export const EU_BLUE = "#003399";
 export const EU_GOLD = "#ffcc00";
 export const SIGNAL_RED = "#c7081b";
@@ -69,7 +71,10 @@ export function PrimaryButton({
   return (
     <button
       type="button"
-      onClick={onClick}
+      onClick={() => {
+        click("primary");
+        onClick?.();
+      }}
       disabled={disabled}
       className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white shadow-[0_6px_18px_rgba(0,51,153,0.28)] transition-opacity disabled:cursor-not-allowed disabled:opacity-40 motion-safe:hover:opacity-90 ${className}`}
       style={{ backgroundColor: accent ?? EU_BLUE }}
@@ -93,7 +98,10 @@ export function GhostButton({
   return (
     <button
       type="button"
-      onClick={onClick}
+      onClick={() => {
+        click("secondary");
+        onClick?.();
+      }}
       disabled={disabled}
       className={`inline-flex items-center justify-center gap-2 rounded-xl border border-[#2d2d2d]/20 bg-white/40 px-4 py-2 text-sm font-medium text-[#2d2d2d] transition-colors disabled:opacity-40 motion-safe:hover:bg-white/70 ${className}`}
     >

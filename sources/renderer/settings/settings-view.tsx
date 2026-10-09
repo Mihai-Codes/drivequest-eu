@@ -16,6 +16,8 @@ type Prefs = {
   defaultShortcut: string;
 };
 
+type SoundPrefs = { sfx: boolean; music: boolean };
+
 function formatAccelerator(e: ReactKeyboardEvent): string | null {
   // Ignore pure modifier presses.
   if (["Meta", "Control", "Alt", "Shift", "CapsLock"].includes(e.key)) return null;
@@ -55,6 +57,7 @@ export function SettingsView() {
   const [prefs, setPrefs] = useState<Prefs | null>(null);
   const [capturing, setCapturing] = useState(false);
   const [pendingShortcut, setPendingShortcut] = useState<string | null>(null);
+  const [sound, setSound] = useState<SoundPrefs>({ sfx: true, music: true });
 
   // Close on Escape unless capturing a shortcut or an interactive element is focused.
   useEffect(() => {
@@ -96,8 +99,27 @@ export function SettingsView() {
       } catch (error) {
         toast.error(`Failed to load preferences: ${error}`);
       }
+      try {
+        const sp = (await window.glazeAPI.glaze.ipc.invoke("sound-prefs:get")) as SoundPrefs;
+        setSound(sp);
+      } catch {
+        /* defaults already set */
+      }
     })();
   }, []);
+
+  const handleSoundChange = async (patch: Partial<SoundPrefs>) => {
+    setSound((prev) => ({ ...prev, ...patch }));
+    try {
+      const updated = (await window.glazeAPI.glaze.ipc.invoke(
+        "sound-prefs:set",
+        patch,
+      )) as SoundPrefs;
+      setSound(updated);
+    } catch (error) {
+      toast.error(`Couldn't update sound settings: ${error}`);
+    }
+  };
 
   const handleLaunchChange = async (checked: boolean) => {
     if (!prefs) return;
@@ -175,6 +197,27 @@ export function SettingsView() {
               checked={prefs?.launchAtLogin ?? false}
               onCheckedChange={(v) => void handleLaunchChange(v)}
               disabled={!prefs}
+            />
+          </Field>
+        </FieldSet>
+
+        <FieldSet title="Sound">
+          <Field
+            label="Interface sounds"
+            description="Distinct click sounds for buttons and controls"
+          >
+            <Switch
+              checked={sound.sfx}
+              onCheckedChange={(v) => void handleSoundChange({ sfx: v })}
+            />
+          </Field>
+          <Field
+            label="Garage ambience"
+            description="Soft background pad on the landing screen, faded out while learning"
+          >
+            <Switch
+              checked={sound.music}
+              onCheckedChange={(v) => void handleSoundChange({ music: v })}
             />
           </Field>
         </FieldSet>

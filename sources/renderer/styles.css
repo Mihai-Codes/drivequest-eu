@@ -36,3 +36,17 @@
     animation: dq-mastery-glow 0.9s ease-out both;
   }
 }
+
+/* DriveQuest type system: max three faces, all from the platform.
+   - SF Pro (system-ui/-apple-system): all UI copy (Tailwind default sans)
+   - SF Pro Rounded (ui-rounded): numerals, stats, badges — the friendly
+     game-voice for numbers
+   - DIN Condensed: Euro-plate devices ONLY (the plate font's closest
+     system cousin to FE-Schrift) */
+.font-rounded {
+  font-family:
+    ui-rounded,
+    -apple-system,
+    "SF Pro Rounded",
+    system-ui;
+}

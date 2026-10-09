@@ -3,6 +3,7 @@ import * as React from "react";
 import { SplitView, Status } from "@glaze/core/components";
 import { useTheme, useConnection, useEnvironment } from "@glaze/core/hooks";
 import { Hud } from "./components/hud.js";
+import { ambientSetActive, unlockAudio } from "./lib/sound.js";
 
 export function RootView() {
   useTheme();
@@ -22,6 +23,23 @@ export function RootView() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   // The showroom keeps its own dark hero; the HUD appears on the exam screens.
   const showHud = pathname !== "/";
+
+  // Audio: unlock the WebAudio context on the first user gesture (autoplay
+  // policy), and keep the garage ambient bed on the landing route only — it
+  // fades out on every other screen.
+  React.useEffect(() => {
+    const gesture = () => unlockAudio();
+    window.addEventListener("pointerdown", gesture, { once: true });
+    window.addEventListener("keydown", gesture, { once: true });
+    return () => {
+      window.removeEventListener("pointerdown", gesture);
+      window.removeEventListener("keydown", gesture);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    ambientSetActive(pathname === "/");
+  }, [pathname]);
 
   return (
     <div className="h-full relative [&:not(:has([data-toolbar]))_.drag-region]:z-50">

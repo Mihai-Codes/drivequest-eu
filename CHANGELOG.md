@@ -6,6 +6,27 @@ versions follow [SemVer](https://semver.org/) starting at 0.1.0.
 
 ## [Unreleased]
 
+### Added
+
+- Gamification audio: distinct UI click sounds (Kenney CC0 Interface Sounds)
+  on primary CTAs, ghost buttons and toggles; a garage ambient bed —
+  "Another August" by cynicmusic (CC0) — on the landing screen that fades
+  out when the learner enters a lesson. Sound toggles added to Settings;
+  persisted via new `sound-prefs` IPC handlers. Credits in
+  `sources/renderer/main/assets/audio/CREDITS.md`.
+
+### Changed
+
+- Garage v3 composition: the floating "Start learning" CTA removed — the
+  recommended bay card now carries the entry action (gold ring + "Next up"
+  strip with the chapter name); reserved slot uses a blank dealer plate;
+  Euro-plate headline text optically re-centred (letter-spacing trailing
+  gap cancelled, cap-height nudge, pixel-measured).
+- Cards adopt Liquid Glass material cues (WWDC25): adaptive translucent
+  surface, specular top edge, lensing inner ring; stats set in SF Pro
+  Rounded (`ui-rounded`); type system capped at three platform faces
+  (SF Pro, SF Pro Rounded, DIN Condensed for plates only).
+
 ## [0.2.0] — 2026-10-10
 
 ### Added

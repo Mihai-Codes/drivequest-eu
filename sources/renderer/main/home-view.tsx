@@ -5,7 +5,7 @@ import { EuroPlate } from "./components/euro-plate.js";
 import { invoke } from "./lib/invoke.js";
 import type { PackSummary } from "./lib/packs.js";
 import { pickLang } from "./lib/packs.js";
-import { AMBER, PrimaryButton } from "./lib/ui.js";
+import { AMBER } from "./lib/ui.js";
 import { firstUnmastered, resumeStep } from "./lib/progress.js";
 import { useProgress } from "./lib/use-progress.js";
 import garageHero from "./assets/garage-hero.webp";
@@ -50,8 +50,6 @@ export function HomeView() {
     );
   }, [packs, progress.state.chapters]);
 
-  const hasProgress = progress.state.xp > 0 || progress.state.streakDays > 0;
-
   if (error) {
     return (
       <div className="flex h-full items-center justify-center bg-gradient-to-b from-[#0a0a12] to-[#000]">
@@ -92,11 +90,6 @@ export function HomeView() {
   }
 
   const packsById = Object.fromEntries(packs.map((p) => [p.country, p]));
-  const active =
-    resume != null && packsById[resume.country] != null
-      ? packsById[resume.country]
-      : (packsById.eu ?? packs[0]);
-  const activeAccent = PACKS[active.country]?.accent ?? "#9ca3af";
   const nextTitle = resume
     ? pickLang(
         packsById[resume.country]?.chapters.find((c) => c.id === resume.chapterId)?.title,
@@ -130,40 +123,10 @@ export function HomeView() {
           </p>
         </header>
 
-        {/* The single obvious way in — continues exactly where they left off */}
-        {resume && active ? (
-          <div className="mt-7 flex flex-col items-center">
-            <PrimaryButton
-              accent={activeAccent}
-              className="px-8 py-3 text-sm"
-              onClick={() => {
-                if (resume.chapterId) {
-                  void navigate({
-                    to: "/chapter/$country/$chapterId",
-                    params: { country: resume.country, chapterId: resume.chapterId },
-                  });
-                } else {
-                  void navigate({ to: "/map/$country", params: { country: resume.country } });
-                }
-              }}
-            >
-              {hasProgress ? "Continue training" : "Start learning"}
-            </PrimaryButton>
-            <p className="mt-2 text-xs text-white/55">
-              {hasProgress ? "Next up" : "First stop"}:{" "}
-              <span className="font-semibold text-white/85">
-                {nextTitle || PACKS[active.country]?.name}
-              </span>
-              <span className="text-white/40">
-                {" "}
-                · {PACKS[active.country]?.name ?? active.country}
-              </span>
-            </p>
-          </div>
-        ) : null}
-
-        {/* Curricula: foundation first, national prep, reserved slot */}
-        <div className="mt-auto grid grid-cols-1 gap-5 pt-9 md:grid-cols-2 xl:grid-cols-3">
+        {/* Curricula: foundation first, national prep, reserved slot. The
+            recommended bay carries the entry action (gold ring + next-up
+            strip) so the learner's path is visible without a floating CTA. */}
+        <div className="mt-auto grid flex-1 grid-cols-1 content-end gap-5 pt-8 md:grid-cols-2 xl:grid-cols-3">
           {packs
             .slice()
             .sort(
@@ -184,12 +147,14 @@ export function HomeView() {
               };
               const isOpen = open === pack.country;
               const step = firstUnmastered(pack.country, pack.chapters, progress.state.chapters);
+              const isNext = resume?.country === pack.country;
               return (
                 <Podium
                   key={pack.country}
                   code={meta.code}
                   name={meta.name}
                   role={meta.role}
+                  nextUp={isNext && nextTitle ? nextTitle : undefined}
                   variant={pack.country === "ro" ? "ro" : "eu"}
                   accent={meta.accent}
                   questions={pack.questionCount}
@@ -199,7 +164,7 @@ export function HomeView() {
                   timeLimitMin={Math.round(exam.timeLimitSec / 60)}
                   expanded={isOpen}
                   onToggle={() => setOpen(isOpen ? null : pack.country)}
-                  ctaLabel={step?.started ? "Continue" : "Start"}
+                  ctaLabel={step ? (step.started ? "Continue" : "Start") : "Review"}
                   onDrive={() => {
                     void navigate({
                       to: step ? "/chapter/$country/$chapterId" : "/map/$country",
@@ -212,13 +177,14 @@ export function HomeView() {
               );
             })}
 
-          {/* Reserved slot: the promise of more countries, inside the scene */}
-          <div className="flex h-full min-h-[280px] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-white/15 bg-black/20 p-5 text-center opacity-60">
-            <EuroPlate size="sm" code="EU" text="···" ariaLabel="Reserved for more countries" />
+          {/* Reserved slot: a blank dealer plate — the promise of more
+              countries, inside the scene, without fake content */}
+          <div className="flex min-h-[280px] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-white/15 bg-black/20 p-5 text-center opacity-60">
+            <EuroPlate size="lg" code="EU" text="" ariaLabel="Reserved for more countries" />
             <p className="text-xs font-semibold uppercase tracking-widest text-white/45">
-              Reserved bay
+              Reserved
             </p>
-            <p className="max-w-[180px] text-[11px] leading-snug text-white/35">
+            <p className="max-w-[190px] text-[11px] leading-snug text-white/35">
               More European countries roll in here soon.
             </p>
           </div>

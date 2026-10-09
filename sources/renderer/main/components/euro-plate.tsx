@@ -91,6 +91,14 @@ export function EuroPlate({ code, text, ariaLabel, size = "lg", className = "" }
           style={{
             fontFamily: '"DIN Condensed", "DIN Alternate", system-ui',
             textShadow: lg ? "0 1px 0 rgba(255,255,255,0.8)" : "none",
+            // letter-spacing adds a trailing gap after the last glyph, which
+            // pulls centered text left of true centre — cancel it (Magic of
+            // CSS: adamschwartz.co/magic-of-css/potions/letter-spacing).
+            // Values calibrated by pixel-measuring the rendered plate.
+            marginRight: lg ? "-0.09em" : "-0.1em",
+            // the line box centres on full ascent+descent; all-caps glyphs
+            // then sit high — optically re-centre on the cap height.
+            transform: lg ? "translateY(0.15em)" : "translateY(0.08em)",
           }}
         >
           {text}
