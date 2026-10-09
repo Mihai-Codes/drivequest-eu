@@ -84,7 +84,9 @@ export function QuickChallengeView() {
       const score = scored.filter((s) => s.correct).length;
       const perfect = score === pool.length && pool.length > 0;
       progress.recordSession();
-      progress.addXp(XP.quickChallenge + score * XP.correctAnswer + (perfect ? XP.quickPerfectBonus : 0));
+      progress.addXp(
+        XP.quickChallenge + score * XP.correctAnswer + (perfect ? XP.quickPerfectBonus : 0),
+      );
       setResult({ score, perfect });
     },
     [pool, progress],
@@ -124,11 +126,14 @@ export function QuickChallengeView() {
             Nothing to refresh yet
           </p>
           <p className="mt-2 text-sm text-[#2d2d2d]/60">
-            Master a chapter first (score 80% or more on its test) and the Quick
-            Challenge will quiz you on it here.
+            Master a chapter first (score 80% or more on its test) and the Quick Challenge will quiz
+            you on it here.
           </p>
           <div className="mt-5">
-            <PrimaryButton accent={accent.accent} onClick={() => navigate({ to: "/map/$country", params: { country } })}>
+            <PrimaryButton
+              accent={accent.accent}
+              onClick={() => navigate({ to: "/map/$country", params: { country } })}
+            >
               Back to map
             </PrimaryButton>
           </div>
@@ -141,11 +146,15 @@ export function QuickChallengeView() {
     return (
       <Center>
         <GlassCard className="max-w-md p-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: result.perfect ? "#b45309" : "#003399" }}>
+          <p
+            className="text-xs font-semibold uppercase tracking-widest"
+            style={{ color: result.perfect ? "#b45309" : "#003399" }}
+          >
             {result.perfect ? "Perfect run" : "Challenge complete"}
           </p>
           <p className="mt-3 text-4xl font-black tabular-nums" style={{ color: "#003399" }}>
-            {result.score}<span className="text-xl text-[#2d2d2d]/40"> / {pool.length}</span>
+            {result.score}
+            <span className="text-xl text-[#2d2d2d]/40"> / {pool.length}</span>
           </p>
           <p className="mt-2 text-sm text-[#2d2d2d]/60">
             {result.perfect
@@ -180,7 +189,10 @@ export function QuickChallengeView() {
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-32">
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="rounded-full px-3 py-1 text-xs font-bold" style={{ backgroundColor: EU_GOLD, color: INK }}>
+            <span
+              className="rounded-full px-3 py-1 text-xs font-bold"
+              style={{ backgroundColor: EU_GOLD, color: INK }}
+            >
               Quick Challenge
             </span>
             <span className="text-xs text-[#2d2d2d]/50">
@@ -189,14 +201,22 @@ export function QuickChallengeView() {
           </div>
           <span
             className="rounded-full px-3 py-1 text-sm font-bold tabular-nums"
-            style={{ backgroundColor: timeLeft <= 15 ? "#c7081b" : "#ffffffaa", color: timeLeft <= 15 ? "#fff" : INK }}
+            style={{
+              backgroundColor: timeLeft <= 15 ? "#c7081b" : "#ffffffaa",
+              color: timeLeft <= 15 ? "#fff" : INK,
+            }}
           >
             {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, "0")}
           </span>
         </div>
 
         <GlassCard className="p-6">
-          <QuestionMedia country={country} media={q.media} alt="" className="mb-4 max-h-48 w-auto rounded-xl" />
+          <QuestionMedia
+            country={country}
+            media={q.media}
+            alt=""
+            className="mb-4 max-h-48 w-auto rounded-xl"
+          />
           <h2 className="text-lg font-bold" style={{ color: INK }}>
             {pickLang(q.stem, lang)}
           </h2>

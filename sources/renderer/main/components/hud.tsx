@@ -63,7 +63,10 @@ export function Hud() {
             {level}
           </span>
           <div className="leading-tight">
-            <p className="text-[10px] font-semibold uppercase tracking-wide" style={{ color: `${INK}88` }}>
+            <p
+              className="text-[10px] font-semibold uppercase tracking-wide"
+              style={{ color: `${INK}88` }}
+            >
               Driver level
             </p>
             <p className="text-xs font-bold tabular-nums" style={{ color: INK }}>
@@ -75,7 +78,10 @@ export function Hud() {
         <Divider />
 
         {/* Streak */}
-        <div className="flex items-center gap-1.5" title="Consecutive days with a completed session">
+        <div
+          className="flex items-center gap-1.5"
+          title="Consecutive days with a completed session"
+        >
           <Flame active={progress.state.streakDays > 0} />
           <span className="text-sm font-bold tabular-nums" style={{ color: INK }}>
             {progress.state.streakDays}
@@ -85,12 +91,18 @@ export function Hud() {
         <Divider />
 
         {/* Hearts */}
-        <div className="flex items-center gap-1" title="Hearts for practice. One refills every 30 min.">
+        <div
+          className="flex items-center gap-1"
+          title="Hearts for practice. One refills every 30 min."
+        >
           {Array.from({ length: MAX_HEARTS }).map((_, i) => (
             <Heart key={i} filled={i < hearts} />
           ))}
           {hearts < MAX_HEARTS && refillIn > 0 ? (
-            <span className="ml-1 text-[10px] font-semibold tabular-nums" style={{ color: `${INK}77` }}>
+            <span
+              className="ml-1 text-[10px] font-semibold tabular-nums"
+              style={{ color: `${INK}77` }}
+            >
               +1 in {fmtCountdown(refillIn)}
             </span>
           ) : null}

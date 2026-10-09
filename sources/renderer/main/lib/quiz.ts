@@ -29,9 +29,7 @@ export function isCorrect(question: Question, selected: string[]): boolean {
 /** Toggle one option key, respecting single vs multi-select. */
 export function toggleOption(question: Question, selected: string[], key: string): string[] {
   if (question.type === "single") return [key];
-  return selected.includes(key)
-    ? selected.filter((k) => k !== key)
-    : [...selected, key];
+  return selected.includes(key) ? selected.filter((k) => k !== key) : [...selected, key];
 }
 
 /** Seeded Fisher-Yates shuffle so Test order is stable within a session. */

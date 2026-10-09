@@ -3,7 +3,11 @@
 import { ipcMain, logger } from "@glaze/core/backend";
 
 import { getPrefs, setPrefs } from "../grok/settings-store.js";
-import { registerGlobalShortcut, unregisterGlobalShortcut, applyLaunchAtLogin } from "../grok/shortcuts.js";
+import {
+  registerGlobalShortcut,
+  unregisterGlobalShortcut,
+  applyLaunchAtLogin,
+} from "../grok/shortcuts.js";
 import { toggleVisibility, importSessionCookies } from "../grok/grok-window.js";
 import { DEFAULT_GLOBAL_SHORTCUT } from "../grok/config.js";
 

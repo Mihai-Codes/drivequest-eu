@@ -38,7 +38,12 @@
  * Only expose what your app actually needs!
  */
 
-import { ipcRenderer, contextBridge, createWebUtilsAPI, installDisplayMediaCompat } from "@glaze/core/preload";
+import {
+  ipcRenderer,
+  contextBridge,
+  createWebUtilsAPI,
+  installDisplayMediaCompat,
+} from "@glaze/core/preload";
 
 // @ts-ignore dev-only parity probes; in renderer/dev/ (excluded from scaffolded apps)
 import { registerParityProbes } from "./dev/parity-preload.js";
@@ -96,7 +101,10 @@ export type GlazeContextBridge = typeof contextBridge;
 export type GlazeIpcRenderer = typeof ipcRenderer;
 
 const webUtils = createWebUtilsAPI();
-const systemPreferencesNotificationCallbacks = new Map<number, SystemPreferencesNotificationCallback>();
+const systemPreferencesNotificationCallbacks = new Map<
+  number,
+  SystemPreferencesNotificationCallback
+>();
 let systemPreferencesNotificationUnsubscribe: (() => void) | null = null;
 
 function ensureSystemPreferencesNotificationListener(): void {
@@ -124,7 +132,10 @@ function ensureSystemPreferencesNotificationListener(): void {
 
 const PAGE_WORLD_FUNCTION_SOURCE = Symbol.for("glaze.pageWorldFunctionSource");
 
-function annotatePageWorldFunction<T extends (...args: never[]) => unknown>(fn: T, source: string): T {
+function annotatePageWorldFunction<T extends (...args: never[]) => unknown>(
+  fn: T,
+  source: string,
+): T {
   const pageWorldFunction = fn as T & Record<symbol, unknown>;
   if (pageWorldFunction[PAGE_WORLD_FUNCTION_SOURCE] !== source) {
     Object.defineProperty(pageWorldFunction, PAGE_WORLD_FUNCTION_SOURCE, {
@@ -157,7 +168,11 @@ function toGlazeIpcEvent(event: { channel?: string }): GlazeIpcEvent {
   };
 }
 
-function addGlazeIpcListener(channel: string, callback: GlazeIpcListener, once: boolean): () => void {
+function addGlazeIpcListener(
+  channel: string,
+  callback: GlazeIpcListener,
+  once: boolean,
+): () => void {
   const listener = (event: { channel?: string }, ...args: unknown[]) => {
     callback(toGlazeIpcEvent(event), ...args);
   };
@@ -270,9 +285,11 @@ const glazeAPI = {
     setThemeSource: (source: "system" | "light" | "dark"): Promise<boolean> =>
       ipcRenderer.invoke("nativeTheme:setThemeSource", source),
 
-    getShouldUseDarkColors: (): Promise<boolean> => ipcRenderer.invoke("nativeTheme:getShouldUseDarkColors"),
+    getShouldUseDarkColors: (): Promise<boolean> =>
+      ipcRenderer.invoke("nativeTheme:getShouldUseDarkColors"),
 
-    getThemeSource: (): Promise<"system" | "light" | "dark"> => ipcRenderer.invoke("nativeTheme:getThemeSource"),
+    getThemeSource: (): Promise<"system" | "light" | "dark"> =>
+      ipcRenderer.invoke("nativeTheme:getThemeSource"),
   },
 
   // -------------------------------------------------------------------------
@@ -319,14 +336,16 @@ const glazeAPI = {
   },
 
   permissions: {
-    getDiagnostics: (): Promise<PermissionDiagnostic[]> => ipcRenderer.invoke("glaze:permissions:getDiagnostics"),
+    getDiagnostics: (): Promise<PermissionDiagnostic[]> =>
+      ipcRenderer.invoke("glaze:permissions:getDiagnostics"),
   },
 
   // -------------------------------------------------------------------------
   // Menu APIs - For native dropdown/context menus
   // -------------------------------------------------------------------------
   Menu: {
-    popup: (options: PopupOptions): Promise<PopupResult> => ipcRenderer.invoke("Menu:popup", options),
+    popup: (options: PopupOptions): Promise<PopupResult> =>
+      ipcRenderer.invoke("Menu:popup", options),
 
     setApplicationMenu: (template: MenuItemConstructorOptions[] | null): Promise<void> =>
       ipcRenderer.invoke("Menu:setApplicationMenu", template),
@@ -342,16 +361,19 @@ const glazeAPI = {
        * Invoke a backend handler and wait for the result
        * Use for custom handlers registered with ipcMain.handle()
        */
-      invoke: <T = unknown>(channel: string, ...args: unknown[]): Promise<T> => ipcRenderer.invoke(channel, ...args),
+      invoke: <T = unknown>(channel: string, ...args: unknown[]): Promise<T> =>
+        ipcRenderer.invoke(channel, ...args),
 
       /**
        * Send a fire-and-forget message to a backend listener registered with ipcMain.on().
        */
       send: (channel: string, ...args: unknown[]): void => ipcRenderer.send(channel, ...args),
 
-      on: (channel: string, callback: GlazeIpcListener): (() => void) => addGlazeIpcListener(channel, callback, false),
+      on: (channel: string, callback: GlazeIpcListener): (() => void) =>
+        addGlazeIpcListener(channel, callback, false),
 
-      once: (channel: string, callback: GlazeIpcListener): (() => void) => addGlazeIpcListener(channel, callback, true),
+      once: (channel: string, callback: GlazeIpcListener): (() => void) =>
+        addGlazeIpcListener(channel, callback, true),
 
       /**
        * Invoke a backend streaming handler, receiving chunks before the final result.
@@ -390,7 +412,6 @@ const glazeAPI = {
       disconnect: (): void => ipcRenderer.disconnect(),
     },
   },
-
 };
 
 const preloadURL = new URL(window.location.href);
@@ -400,18 +421,23 @@ function exposeGlazeAPI(): void {
 }
 
 // `process.env.GLAZE_DEV_HARNESS` is a build-time define (build-renderer replaces it
-// with "1"/"0"), not a runtime browser global — hence the no-undef disable.
-// eslint-disable-next-line no-undef
-if (process.env.GLAZE_DEV_HARNESS === "1" && preloadURL.searchParams.get("glazeParityDefaultPendingStub") === "1") {
+// with "1"/"0"), not a runtime browser global — hence the no-undef disable. The
+// define must stay inline in each condition so production builds can dead-code
+// eliminate the dev-harness branch (its module is stubbed to nothing).
+/* eslint-disable no-undef -- build-time define, not a runtime browser global */
+if (
+  process.env.GLAZE_DEV_HARNESS === "1" &&
+  preloadURL.searchParams.get("glazeParityDefaultPendingStub") === "1"
+) {
   window.setTimeout(exposeGlazeAPI, 200);
 } else {
   exposeGlazeAPI();
 }
 
-// eslint-disable-next-line no-undef
 if (process.env.GLAZE_DEV_HARNESS === "1") {
   registerParityProbes(contextBridge, ipcRenderer);
 }
+/* eslint-enable no-undef */
 
 // Routes navigator.mediaDevices.getDisplayMedia through the app's
 // session.setDisplayMediaRequestHandler (falls back to the built-in WebKit

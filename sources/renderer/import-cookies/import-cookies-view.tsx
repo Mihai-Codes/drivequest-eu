@@ -31,7 +31,10 @@ export function ImportCookiesView() {
     }
     setImporting(true);
     try {
-      const result = (await window.glazeAPI.glaze.ipc.invoke("grok:importSessionCookies", trimmed)) as {
+      const result = (await window.glazeAPI.glaze.ipc.invoke(
+        "grok:importSessionCookies",
+        trimmed,
+      )) as {
         count: number;
       };
       toast.success(
@@ -49,9 +52,9 @@ export function ImportCookiesView() {
       <div className="px-5 pt-2 pb-6 flex flex-col gap-4">
         <Text variant="small" color="secondary">
           Paste a raw cookie string — the same format as <code>document.cookie</code> or a{" "}
-          <code>Cookie</code> request header (semicolon-separated <code>name=value</code>{" "}
-          pairs) from an already-signed-in browser session. It's written directly into this
-          app's cookie store for grok.com, x.ai, and accounts.x.ai, then Grok reloads.
+          <code>Cookie</code> request header (semicolon-separated <code>name=value</code> pairs)
+          from an already-signed-in browser session. It's written directly into this app's cookie
+          store for grok.com, x.ai, and accounts.x.ai, then Grok reloads.
         </Text>
         <Textarea
           size="medium"

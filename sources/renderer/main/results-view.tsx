@@ -80,7 +80,8 @@ export function ResultsView() {
             <Stars count={stars} className="scale-150" />
           </div>
           <p className="mt-4 text-4xl font-black tabular-nums" style={{ color: "#003399" }}>
-            {score}<span className="text-xl text-[#2d2d2d]/40"> / {total}</span>
+            {score}
+            <span className="text-xl text-[#2d2d2d]/40"> / {total}</span>
           </p>
           <p className="mt-1 text-sm text-[#2d2d2d]/60">
             {pct}% accuracy · {fmtTime(timeSec)}
@@ -89,7 +90,9 @@ export function ResultsView() {
           {/* Next actions */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <GhostButton
-              onClick={() => navigate({ to: "/chapter/$country/$chapterId", params: { country, chapterId } })}
+              onClick={() =>
+                navigate({ to: "/chapter/$country/$chapterId", params: { country, chapterId } })
+              }
             >
               Retry
             </GhostButton>

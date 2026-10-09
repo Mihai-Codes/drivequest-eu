@@ -4,7 +4,10 @@ import { app, globalShortcut, logger } from "@glaze/core/backend";
 
 let currentAccelerator: string | null = null;
 
-export async function registerGlobalShortcut(accelerator: string, callback: () => void): Promise<boolean> {
+export async function registerGlobalShortcut(
+  accelerator: string,
+  callback: () => void,
+): Promise<boolean> {
   if (currentAccelerator) {
     try {
       globalShortcut.unregister(currentAccelerator);

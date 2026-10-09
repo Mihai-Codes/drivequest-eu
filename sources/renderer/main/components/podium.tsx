@@ -57,7 +57,9 @@ export function Podium({
         {/* Spec plate (always visible) */}
         <div className="mb-3 grid grid-cols-2 gap-2 rounded-lg bg-black/30 p-2 text-center text-xs">
           <div>
-            <div className="font-semibold text-white">{passMin}/{questions}</div>
+            <div className="font-semibold text-white">
+              {passMin}/{questions}
+            </div>
             <div className="text-white/40">to pass</div>
           </div>
           <div>

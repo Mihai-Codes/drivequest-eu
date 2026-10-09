@@ -66,11 +66,11 @@
         "usage": "Enable Grok Voice Mode and Camera Mode"
       }
     },
-    "sdkVersion": "0.14.2.0",
+    "sdkVersion": "0.14.3.0",
     "createdAt": "2026-08-13T16:15:02.142Z",
     "lastMigration": "tray-retina-icons",
     "host": {
-      "minVersion": "0.14.2.0"
+      "minVersion": "0.14.3.0"
     },
     "updatedAt": 1789201574909,
     "appId": "drivequest-eu-local-ngt7jm4n",

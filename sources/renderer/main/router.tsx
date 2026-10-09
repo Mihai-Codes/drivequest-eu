@@ -73,7 +73,13 @@ const quickRoute = createRoute({
   },
 });
 
-const routeTree = rootRoute.addChildren([homeRoute, mapRoute, chapterRoute, resultsRoute, quickRoute]);
+const routeTree = rootRoute.addChildren([
+  homeRoute,
+  mapRoute,
+  chapterRoute,
+  resultsRoute,
+  quickRoute,
+]);
 
 const queryClient = new QueryClient();
 

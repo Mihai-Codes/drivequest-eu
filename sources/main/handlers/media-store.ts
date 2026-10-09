@@ -35,7 +35,11 @@ export function safeSegment(value: unknown): string | null {
  * Returns null for: bad country/name, unknown extension, missing file,
  * read error, or anything escaping the pack's media dir. Never throws.
  */
-export function resolvePackMedia(packsRoot: string, country: unknown, name: unknown): string | null {
+export function resolvePackMedia(
+  packsRoot: string,
+  country: unknown,
+  name: unknown,
+): string | null {
   const safeCountry = safeSegment(country);
   const rawName = safeSegment(name);
   if (!safeCountry || !rawName) return null;

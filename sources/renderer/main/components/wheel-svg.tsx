@@ -45,7 +45,14 @@ export function WheelSvg({ className = "", variant = "eu" }: WheelSvgProps) {
       </defs>
 
       {/* Rim */}
-      <circle cx={100} cy={100} r={70} fill="none" stroke={`url(#${gid("rim")})`} strokeWidth={15} />
+      <circle
+        cx={100}
+        cy={100}
+        r={70}
+        fill="none"
+        stroke={`url(#${gid("rim")})`}
+        strokeWidth={15}
+      />
       {/* Accent pinstripe on the rim */}
       <circle cx={100} cy={100} r={70} fill="none" stroke={accent} strokeWidth={2} opacity={0.85} />
       {/* 12-o'clock marker */}
@@ -69,8 +76,23 @@ export function WheelSvg({ className = "", variant = "eu" }: WheelSvgProps) {
       })}
 
       {/* Hub */}
-      <circle cx={100} cy={100} r={30} fill={`url(#${gid("hub")})`} stroke="#0c0e11" strokeWidth={2} />
-      <circle cx={100} cy={100} r={30} fill="none" stroke={accent} strokeWidth={1.5} opacity={0.6} />
+      <circle
+        cx={100}
+        cy={100}
+        r={30}
+        fill={`url(#${gid("hub")})`}
+        stroke="#0c0e11"
+        strokeWidth={2}
+      />
+      <circle
+        cx={100}
+        cy={100}
+        r={30}
+        fill="none"
+        stroke={accent}
+        strokeWidth={1.5}
+        opacity={0.6}
+      />
 
       {variant === "eu" ? (
         /* 12-star ring */

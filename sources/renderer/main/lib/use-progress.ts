@@ -8,10 +8,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { invoke } from "./invoke.js";
-import type {
-  ProgressState,
-  ChapterProgress,
-} from "./progress.js";
+import type { ProgressState, ChapterProgress } from "./progress.js";
 import {
   emptyChapter,
   emptyProgress,
@@ -66,11 +63,7 @@ export type ProgressApi = {
   addXp: (amount: number) => void;
   recordSession: () => void;
   /** Merge a patch into one chapter's progress, creating it if needed. */
-  updateChapter: (
-    country: string,
-    chapterId: string,
-    patch: Partial<ChapterProgress>,
-  ) => void;
+  updateChapter: (country: string, chapterId: string, patch: Partial<ChapterProgress>) => void;
   /** Read-modify-write a full chapter record (used by the results screen). */
   setChapter: (country: string, chapterId: string, next: ChapterProgress) => void;
 };
@@ -126,14 +119,11 @@ export function useProgress(): ProgressApi {
     [],
   );
 
-  const setChapter = useCallback(
-    (country: string, chapterId: string, next: ChapterProgress) => {
-      if (!cache) return;
-      const key = chapterKey(country, chapterId);
-      setState({ ...cache, chapters: { ...cache.chapters, [key]: next } });
-    },
-    [],
-  );
+  const setChapter = useCallback((country: string, chapterId: string, next: ChapterProgress) => {
+    if (!cache) return;
+    const key = chapterKey(country, chapterId);
+    setState({ ...cache, chapters: { ...cache.chapters, [key]: next } });
+  }, []);
 
   return {
     state,

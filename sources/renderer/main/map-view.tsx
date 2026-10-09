@@ -84,12 +84,13 @@ export function MapView() {
   }
 
   const chapters: ChapterProgress[] = pack.chapters.map(
-    (c) => state.chapters[chapterKey(country, c.id)] ?? {
-      status: "locked",
-      stars: 0,
-      bestAccuracy: 0,
-      bestTimeSec: null,
-    },
+    (c) =>
+      state.chapters[chapterKey(country, c.id)] ?? {
+        status: "locked",
+        stars: 0,
+        bestAccuracy: 0,
+        bestTimeSec: null,
+      },
   );
   const masteredCount = chapters.filter((c) => isMastered(c)).length;
 
@@ -105,7 +106,8 @@ export function MapView() {
             {country === "ro" ? "Romania" : "European Core"} licence map
           </h1>
           <p className="mt-1 text-sm text-[#2d2d2d]/60">
-            Master each checkpoint to unlock the next. {masteredCount} of {pack.chapters.length} mastered.
+            Master each checkpoint to unlock the next. {masteredCount} of {pack.chapters.length}{" "}
+            mastered.
           </p>
         </header>
 
@@ -140,11 +142,7 @@ export function MapView() {
                       backgroundColor: locked ? "#2d2d2d33" : accent.accent,
                     }}
                   >
-                    {locked ? (
-                      <LockIcon />
-                    ) : (
-                      String(i + 1).padStart(2, "0")
-                    )}
+                    {locked ? <LockIcon /> : String(i + 1).padStart(2, "0")}
                   </div>
 
                   {/* body */}
@@ -181,7 +179,11 @@ export function MapView() {
                         })
                       }
                     >
-                      {status === "mastered" ? "Review" : status === "in_progress" ? "Continue" : "Start"}
+                      {status === "mastered"
+                        ? "Review"
+                        : status === "in_progress"
+                          ? "Continue"
+                          : "Start"}
                     </PrimaryButton>
                   </div>
                 </GlassCard>
@@ -192,7 +194,8 @@ export function MapView() {
 
         {/* Legislation freshness */}
         <p className="mt-10 text-center text-xs text-[#2d2d2d]/40">
-          Legislation current as of {pack.lawValidThrough} · Unofficial study aid, always confirm with the law
+          Legislation current as of {pack.lawValidThrough} · Unofficial study aid, always confirm
+          with the law
         </p>
       </div>
     </div>

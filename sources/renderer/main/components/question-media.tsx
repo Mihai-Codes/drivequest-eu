@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 
 const invoke = (channel: string, ...args: unknown[]) =>
-  (window as unknown as { glazeAPI: { glaze: { ipc: { invoke: (c: string, ...a: unknown[]) => Promise<unknown> } } } })
-    .glazeAPI.glaze.ipc.invoke(channel, ...args);
+  (
+    window as unknown as {
+      glazeAPI: { glaze: { ipc: { invoke: (c: string, ...a: unknown[]) => Promise<unknown> } } };
+    }
+  ).glazeAPI.glaze.ipc.invoke(channel, ...args);
 
 type Props = {
   country: string;

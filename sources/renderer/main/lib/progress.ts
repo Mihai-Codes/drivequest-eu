@@ -97,8 +97,7 @@ function clamp(v: number, lo: number, hi: number): number {
 
 // ---- Key helpers -----------------------------------------------------------
 
-export const chapterKey = (country: string, chapterId: string): string =>
-  `${country}/${chapterId}`;
+export const chapterKey = (country: string, chapterId: string): string => `${country}/${chapterId}`;
 
 // ---- Hearts ----------------------------------------------------------------
 
@@ -128,8 +127,7 @@ export function loseHeart(state: ProgressState, now: number): ProgressState {
   return {
     ...state,
     hearts: current - 1,
-    lastHeartAt:
-      state.lastHeartAt == null || current >= MAX_HEARTS ? now : state.lastHeartAt,
+    lastHeartAt: state.lastHeartAt == null || current >= MAX_HEARTS ? now : state.lastHeartAt,
   };
 }
 

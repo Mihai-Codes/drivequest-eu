@@ -196,16 +196,17 @@ function LearnCard({
         {pickScenarioText(scenario.hook, lang)}
       </p>
       <p className="mt-4 leading-relaxed text-[#2d2d2d]/80">
-        {pickScenarioText(scenario.goal, lang)} There is no timer here. Read the
-        rules, then prove it in practice. Every answer later cites the exact
-        article of law it comes from.
+        {pickScenarioText(scenario.goal, lang)} There is no timer here. Read the rules, then prove
+        it in practice. Every answer later cites the exact article of law it comes from.
       </p>
       <div className="mt-6 flex items-center gap-3">
         <PrimaryButton accent={accent} onClick={onDone}>
           Start practice
         </PrimaryButton>
       </div>
-      <p className="mt-4 text-xs text-[#2d2d2d]/40">Pack {country.toUpperCase()} · learn the why, then the rule</p>
+      <p className="mt-4 text-xs text-[#2d2d2d]/40">
+        Pack {country.toUpperCase()} · learn the why, then the rule
+      </p>
     </GlassCard>
   );
 }
@@ -290,7 +291,12 @@ function PracticeStage({
         </div>
       </div>
 
-      <QuestionMedia country={country} media={q.media} alt="" className="mb-4 max-h-48 w-auto rounded-xl" />
+      <QuestionMedia
+        country={country}
+        media={q.media}
+        alt=""
+        className="mb-4 max-h-48 w-auto rounded-xl"
+      />
 
       <h2 className="text-lg font-bold text-[#2d2d2d]">{pickLang(q.stem, lang)}</h2>
 
@@ -310,7 +316,9 @@ function PracticeStage({
               onClick={() => choose(key)}
               disabled={checked || outOfHearts}
               className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm font-medium text-[#2d2d2d] transition-colors disabled:cursor-default ${ring}`}
-              style={isSel && !checked ? { borderColor: accent, backgroundColor: "#ffffff" } : undefined}
+              style={
+                isSel && !checked ? { borderColor: accent, backgroundColor: "#ffffff" } : undefined
+              }
             >
               <span
                 className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-xs font-black text-white"
@@ -331,9 +339,7 @@ function PracticeStage({
             wasCorrect ? "border-green-600/30 bg-green-50" : "border-[#c7081b]/30 bg-red-50"
           }`}
         >
-          <p className="font-semibold text-[#2d2d2d]">
-            {wasCorrect ? "Correct." : "Not quite."}
-          </p>
+          <p className="font-semibold text-[#2d2d2d]">{wasCorrect ? "Correct." : "Not quite."}</p>
           <p className="mt-1 text-[#2d2d2d]/80">{pickLang(q.explanation, lang)}</p>
           <p className="mt-2 text-xs text-[#2d2d2d]/50">Source: {q.article}</p>
         </div>
@@ -347,7 +353,11 @@ function PracticeStage({
 
       <div className="mt-6 flex items-center justify-between">
         {!checked ? (
-          <PrimaryButton accent={accent} onClick={check} disabled={selected.length === 0 || outOfHearts}>
+          <PrimaryButton
+            accent={accent}
+            onClick={check}
+            disabled={selected.length === 0 || outOfHearts}
+          >
             Check answer
           </PrimaryButton>
         ) : (
@@ -500,13 +510,21 @@ function TestStage({
         </p>
         <span
           className="rounded-full px-3 py-1 text-sm font-bold tabular-nums"
-          style={{ backgroundColor: lowTime ? "#c7081b" : "#ffffffaa", color: lowTime ? "#fff" : "#2d2d2d" }}
+          style={{
+            backgroundColor: lowTime ? "#c7081b" : "#ffffffaa",
+            color: lowTime ? "#fff" : "#2d2d2d",
+          }}
         >
           {mm}:{ss}
         </span>
       </div>
 
-      <QuestionMedia country={country} media={q.media} alt="" className="mb-4 max-h-48 w-auto rounded-xl" />
+      <QuestionMedia
+        country={country}
+        media={q.media}
+        alt=""
+        className="mb-4 max-h-48 w-auto rounded-xl"
+      />
 
       <h2 className="text-lg font-bold text-[#2d2d2d]">{pickLang(q.stem, lang)}</h2>
 

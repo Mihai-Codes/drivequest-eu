@@ -13,9 +13,9 @@ import { resolvePackMedia, safeSegment } from "./media-store.js";
 
 const SOURCES_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const CANDIDATES = [
-  join(SOURCES_ROOT, "public", "packs"),      // dev: sources/public/packs
-  join(SOURCES_ROOT, "build", "packs"),       // prod: runtime/build/packs
-  join(SOURCES_ROOT, "packs"),                // alt: runtime/packs
+  join(SOURCES_ROOT, "public", "packs"), // dev: sources/public/packs
+  join(SOURCES_ROOT, "build", "packs"), // prod: runtime/build/packs
+  join(SOURCES_ROOT, "packs"), // alt: runtime/packs
   join(process.resourcesPath ?? "", "packs"), // alt: bundle Resources/packs
 ];
 
@@ -52,7 +52,12 @@ export function registerPackHandlers(): void {
       if (country.startsWith("_") || country.startsWith(".")) continue;
       try {
         const pack = loadPack(country) as {
-          meta: { country: string; languages: string[]; packVersion: string; lawValidThrough: string };
+          meta: {
+            country: string;
+            languages: string[];
+            packVersion: string;
+            lawValidThrough: string;
+          };
           chapters: { id: string; title: Record<string, string> }[];
           questions: { chapter: string }[];
           fines?: unknown[];
